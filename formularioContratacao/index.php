@@ -36,12 +36,12 @@
                     </div>
 
                     <div class="row">
-                    <div class="col" id="ajustes">
+                    <div class="col-10" id="ajustes">
                             <label for="nome">Nome:
                                 <input type="text" id="nome" name="nome">
                             </label>
                         </div>
-                        <div class="col" id="ajustes">
+                        <div class="col-2" id="ajustes">
                             <label for="contratoNumero">Contrato Nº:
                                 <input type="text" id="contratoNumero" name="contratoNumero">
                             </label>
@@ -49,22 +49,22 @@
                     </div>
 
                     <div class="row">
-                        <div class="col" id="ajustes">
+                        <div class="col-4" id="ajustes">
                             <label for="cpf">CPF:
                                 <input type="text" id="cpf" name="cpf">
                             </label>
                         </div>
-                        <div class="col" id="ajustes">
+                        <div class="col-2" id="ajustes">
                             <label for="rg">RG:
                                 <input type="text" id="rg" name="rg">
                             </label>
                         </div>
-                        <div class="col" id="ajustes">
+                        <div class="col-3" id="ajustes">
                             <label for="dataNascimento">Data de Nascimento:
                                 <input type="text" id="dataNascimento" name="dataNascimento">
                             </label>
                         </div>
-                        <div class="col" id="ajustes">
+                        <div class="col-3" id="ajustes">
                             <label for="profissao">Profissão:
                                 <input type="text" id="profissao" name="profissao">
                             </label>
@@ -90,7 +90,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-8" id="multiplaEscolha"> <span>Sexo:</span>
+                        <div class="col-9" id="multiplaEscolha"> <span>Sexo:</span>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label" for="sexoMasculino">
                                     M
@@ -110,7 +110,7 @@
                                 <input class="form-check-input" type="radio" name="sexo" id="sexoNaoBinario">
                             </div>
                             </div>
-                        <div class="col-4" id="ajustes">
+                        <div class="col-3" id="ajustes">
                             <label for="celular">Celular:
                                 <input type="text" id="celular" name="celular">
                             </label>
@@ -170,12 +170,12 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-3" id="ajustes">
+                        <div class="col-4" id="ajustes">
                             <label for="planoContratado">Plano Contratado:
                                 <input type="text" id="planoContratado" name="planoContratado">
                             </label>
                         </div>
-                        <div class="col-7" id="multiplaEscolha"><span>Método Cobrança:</span>
+                        <div class="col-6" id="multiplaEscolha"><span>Método Cobrança:</span>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label" for="cartaoCredito">
                                     Cartão de crédito
@@ -203,12 +203,12 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-2" id="ajustes">
+                        <div class="col-3" id="ajustes">
                             <label for="estadoCivil">Estado Civil:
                                 <input type="text" id="estadoCivil" name="estadoCivil">
                             </label>
                         </div>
-                        <div class="col-8" id="ajustes">
+                        <div class="col-7" id="ajustes">
                             <label for="email">E-mail:
                                 <input type="email" id="email" name="email">
                             </label>
