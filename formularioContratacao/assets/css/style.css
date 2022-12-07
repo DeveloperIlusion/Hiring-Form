@@ -1,0 +1,136 @@
+main {
+    /* background-image: url("../img/LogoUpBackgroundMarcaDagua.png"); */
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: center;
+    background-size: contain;
+}
+
+#cabecalho {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#logoUP {
+    float: left;
+    max-height: 120px;
+    padding-right: 15px;
+}
+
+form {
+    border: none;
+}
+
+#titulo {
+    background-color: #44546a;
+    color: white;
+    border: 1px solid #212121;
+}
+
+#cabecalhoDependentes {
+    background-color: #f2f2f2;
+    border: 1px solid #212121;
+    font-weight: bold;
+    font-size: small;
+}
+
+.nomeColunaDependentes1 {
+    border-right: 1px solid #212121;
+}
+
+.nomeColunaDependentes2 {
+    border-left: 1px solid #212121;
+}
+
+#multiplaEscolha {
+    border: solid 1px #212121;
+}
+
+div {
+    background-color: transparent;
+}
+
+.ajustes{
+    border: 1px solid #212121;
+}
+
+#estado {
+    display: inline;
+    width: min-content;
+    padding-right: 55px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+select {
+    border: none !important;
+}
+
+#paragrafo1 {
+    text-align: center;
+    font-size: smaller;
+}
+
+#paragrafo2 {
+    text-align: left;
+    font-size: smaller;
+}
+
+#paragrafo3 {
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: smaller;
+}
+
+#paragrafo4 {
+    text-align: left;
+    font-size: smaller;
+}
+
+#paragrafo5 {
+    padding-top: 80px;
+}
+
+#paragrafo6 {
+    padding-left: 20%;
+    padding-top: 80px;
+}
+
+#texto1 {
+    border: solid 1px #212121;
+}
+
+#texto2 {
+    border: solid 1px #212121;
+}
+
+#texto3 {
+    border: solid 1px #212121;
+}
+
+.container {
+    border: 1px solid #212121;
+}
+
+#ajustes {
+    border: 1px solid #212121;
+}
+
+input {
+    border: none;
+    background-color: transparent;
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+label {
+    white-space: nowrap;
+}
+
+footer {
+    background-color: transparent;
+}
