@@ -27,14 +27,11 @@
                 $_POST['Bairro'],
                 $_POST['Cidade'],
                 $_POST['Estado'],
-                $_POST['CEP'],
-                $_POST['FK_Endereco_Contratante']
+                $_POST['CEP']
             ];
 
 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            var_dump($_POST);
 
             $dataTblContratante = $conn->prepare("UPDATE contratante 
                                     SET Nome = ?,  CPF = ?, RG = ?, DataNasciment0 = ?,
@@ -45,6 +42,19 @@
             $dataTblContratante->execute($dadosContratante);
 
             if ($dataTblContratante->rowCount() > 0) {
+                header("Location: lista.php?msgSucesso=Dados do contratante alterados com sucesso.");
+            } else {
+                header("Location: lista.php?msgError=Falha na alteração dos dados do contratante.");
+            }
+
+            $dataTblEndereco = $conn->prepare("UPDATE contratante 
+                                    SET Endereco = ?,  Numero = ?, Bairro = ?, Cidade = ?,
+                                    Estado = ?, CEP = ?
+                                    WHERE idEndereco = ?");
+            
+            $dataTblEndereco->execute($dadosEndereco);
+
+            if ($dataTblEndereco->rowCount() > 0) {
                 header("Location: lista.php?msgSucesso=Dados do contratante alterados com sucesso.");
             } else {
                 header("Location: lista.php?msgError=Falha na alteração dos dados do contratante.");

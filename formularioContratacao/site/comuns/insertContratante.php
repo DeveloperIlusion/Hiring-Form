@@ -12,7 +12,7 @@
 
             $data = $conn->prepare("INSERT INTO contratante 
                                     (Nome, CPF, RG, DataNascimento, Sexo, EstadoCivil, Email, Profissao, Celular, Telefone)
-                                    VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )");
+                                    VALUES ( ?, ?, ?, ?, 0, 0, ?, ?, ?, ? )");
             
             $data->execute([
                 $_POST['Nome'], 

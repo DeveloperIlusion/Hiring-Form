@@ -56,6 +56,10 @@ div {
     border: 1px solid #212121;
 }
 
+#problemaAlinhamento {
+    display: inline-block;
+}
+
 #estado {
     display: inline;
     width: min-content;

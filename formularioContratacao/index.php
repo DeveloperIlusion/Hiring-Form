@@ -15,19 +15,43 @@
 <body>
     <header>
         <?php
-
             $dataTblContratante = [
                 "idContratante" => 0,
                 "Nome" => "",
                 "CPF" => "",
                 "RG" => "",
                 "DataNascimento" => "",
-                "Sexo" => "",
-                "EstadoCivil" => "",
+                "Sexo" => 0,
+                "EstadoCivil" => 0,
                 "Email" => "",
                 "Profissao" => "",
                 "Celular" => "",
                 "Telefone" => ""
+            ];
+
+            $dataTblEndereco = [
+                "idEndereco" => 0,
+                "Endereco" => "",
+                "Numero" => "",
+                "Bairro" => "",
+                "Cidade" => "",
+                "Estado" => "",
+                "CEP" => "",
+                "FK_Endereco_Contratante" => 0
+            ];
+
+            $dataTblPlano = [
+                "idContrato" => 0,
+                "Plano" => "",
+                "Valor" => ""
+            ];
+
+            $dataTblPlanoContratado = [
+                "idPlanoContratado" => 0,
+                "PlanoContratado" => 0,
+                "MetodoCobranca" => "",
+                "Vencimento" => "",
+                "Contratante" => 0
             ];
             
             try {
