@@ -14,6 +14,43 @@
 
 <body>
     <header>
+        <?php
+
+            $dataTblContratante = [
+                "idContratante" => 0,
+                "Nome" => "",
+                "CPF" => "",
+                "RG" => "",
+                "DataNascimento" => "",
+                "Sexo" => "",
+                "EstadoCivil" => "",
+                "Email" => "",
+                "Profissao" => "",
+                "Celular" => "",
+                "Telefone" => ""
+            ];
+            
+            try {
+                $conn = new PDO(
+                    "mysql:host=localhost;port=3306;dbname=formulariocontratante",
+                    "root",
+                    ""                
+                );
+
+                $dataTblContratante = $conn->prepare("SELECT * FROM contratante Where idContratante = ?");
+                $rsc1 = $dataTblContratante->execute([$_GET['idContratante']]);
+                $dataTblContratante = $dataTblContratante->fetch();
+
+            } catch (PDOException $pe){
+                echo "ERROR: " . $pe->getMessage();
+            }
+            
+            echo "<pre>";
+        print_r($dataTblContratante);
+        echo "</pre>";
+        ?>
+
+        
 
     </header>
     <main>
@@ -38,12 +75,12 @@
                     <div class="row">
                     <div class="col-10" id="ajustes">
                             <label for="nome">Nome:
-                                <input type="text" id="nome" name="nome">
+                                <input type="text" id="nome" name="nome" value="<?= $dataTblContratante['Nome'] ?>">
                             </label>
                         </div>
                         <div class="col-2" id="ajustes">
                             <label for="contratoNumero">Contrato Nº:
-                                <input type="text" id="contratoNumero" name="contratoNumero">
+                                <input type="text" id="contratoNumero" name="contratoNumero" value="<?= $dataTblContratante['ContratoNumero'] ?>">
                             </label>
                         </div>
                     </div>
@@ -51,22 +88,22 @@
                     <div class="row">
                         <div class="col-4" id="ajustes">
                             <label for="cpf">CPF:
-                                <input type="text" id="cpf" name="cpf">
+                                <input type="text" id="cpf" name="cpf" value="<?= $dataTblContratante['CPF'] ?>">
                             </label>
                         </div>
                         <div class="col-2" id="ajustes">
                             <label for="rg">RG:
-                                <input type="text" id="rg" name="rg">
+                                <input type="text" id="rg" name="rg" value="<?= $dataTblContratante['RG'] ?>">
                             </label>
                         </div>
                         <div class="col-3" id="ajustes">
                             <label for="dataNascimento">Data de Nascimento:
-                                <input type="text" id="dataNascimento" name="dataNascimento">
+                                <input type="text" id="dataNascimento" name="dataNascimento" value="<?= $dataTblContratante['DataNascimento'] ?>">
                             </label>
                         </div>
                         <div class="col-3" id="ajustes">
                             <label for="profissao">Profissão:
-                                <input type="text" id="profissao" name="profissao">
+                                <input type="text" id="profissao" name="profissao" value="<?= $dataTblContratante['Profissao'] ?>">
                             </label>
                         </div>
                     </div>
@@ -112,7 +149,7 @@
                             </div>
                         <div class="col-3" id="ajustes">
                             <label for="celular">Celular:
-                                <input type="text" id="celular" name="celular">
+                                <input type="text" id="celular" name="celular" value="<?= $dataTblContratante['Celular'] ?>">
                             </label>
                         </div>
                     </div>
@@ -126,7 +163,7 @@
                         <div class="col-3" id="ajustes">
                             <label for="estado">Estado:
                                 <select name="estado" id="estado" class="form-control selectpicker selectuf" data-style="btn btn-link" required="">
-                                    <option value="" disabled="" selected="">Selecione</option>
+                                    <option value="" disabled="" selected=""></option>
                                     <option value="1">Acre</option>
                                     <option value="2">Alagoas</option>
                                     <option value="3">Amapá</option>
@@ -164,7 +201,7 @@
                         </div>
                         <div class="col-3" id="ajustes">
                             <label for="telefone">Telefone:
-                                <input type="text" id="telefone" name="telefone">
+                                <input type="text" id="telefone" name="telefone" value="<?= $dataTblContratante['Telefone'] ?>">
                             </label>
                         </div>
                     </div>
@@ -205,12 +242,12 @@
                     <div class="row">
                         <div class="col-3" id="ajustes">
                             <label for="estadoCivil">Estado Civil:
-                                <input type="text" id="estadoCivil" name="estadoCivil">
+                                <input type="text" id="estadoCivil" name="estadoCivil" value="<?= $dataTblContratante['EstadoCivil'] ?>">
                             </label>
                         </div>
                         <div class="col-7" id="ajustes">
                             <label for="email">E-mail:
-                                <input type="email" id="email" name="email">
+                                <input type="email" id="email" name="email" value="<?= $dataTblContratante['Email'] ?>">
                             </label>
                         </div>
                         <div class="col-2" id="ajustes">
