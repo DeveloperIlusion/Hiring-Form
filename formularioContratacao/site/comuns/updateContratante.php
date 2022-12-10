@@ -30,6 +30,16 @@
                 $_POST['CEP']
             ];
 
+            $dadosPlanoContratado = [
+                $_POST['PlanoContratado'],
+                $_POST['MetodoCobranca'],
+                $_POST['Valor'],
+                $_POST['Vencimento']
+            ];
+
+            $dadosPlano = [
+                $_POST['Plano']
+            ];
 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -41,20 +51,24 @@
             
             $dataTblContratante->execute($dadosContratante);
 
-            if ($dataTblContratante->rowCount() > 0) {
-                header("Location: lista.php?msgSucesso=Dados do contratante alterados com sucesso.");
-            } else {
-                header("Location: lista.php?msgError=Falha na alteração dos dados do contratante.");
-            }
-
-            $dataTblEndereco = $conn->prepare("UPDATE contratante 
-                                    SET Endereco = ?,  Numero = ?, Bairro = ?, Cidade = ?,
-                                    Estado = ?, CEP = ?
+            $dataTblEndereco = $conn->prepare("UPDATE endereco 
+                                    SET Endereco = ?,  Numero = ?, Bairro = ?, 
+                                    Cidade = ?, Estado = ?, CEP = ?
                                     WHERE idEndereco = ?");
             
             $dataTblEndereco->execute($dadosEndereco);
 
-            if ($dataTblEndereco->rowCount() > 0) {
+            $dataTblPlanoContratado = $conn->prepare("UPDATE planoContratado 
+                                    SET PlanoContratado = ?,  MetodoCobranca = ?, Valor = ?, Vencimento = ?
+                                    WHERE idPlanoContratado = ?");
+            
+            $dataTblPlanoContratado->execute($dadosPlanoContratado);
+
+            $dataTblPlano = $conn->prepare("UPDATE plano SET Plano = ? WHERE idPlano = ?");
+            
+            $dataTblPlano->execute($dadosPlano);
+
+            if ($dataTblContratante->rowCount() > 0) {
                 header("Location: lista.php?msgSucesso=Dados do contratante alterados com sucesso.");
             } else {
                 header("Location: lista.php?msgError=Falha na alteração dos dados do contratante.");
