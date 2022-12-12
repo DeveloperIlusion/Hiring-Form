@@ -55,10 +55,10 @@
         
             $dataTblDependente = [
                 "idDependente" => 0,
-                "Nome" => "",
-                "DataNascimento" => "",
+                "NomeDependente" => "",
+                "DataNascimentoDependente" => "",
                 "GrauParentesco" => "",
-                "CPF" => "",
+                "CPFDependente" => "",
                 "FK_Dependente_Contratante" => 0
             ];
             
@@ -73,34 +73,27 @@
                 $dataTblContratante = $conn->prepare("SELECT * FROM contratante WHERE idContratante = ?");
                 $rsc1 = $dataTblContratante->execute([$_GET["idContratante"]]);
                 $dataTblContratante = $dataTblContratante->fetch();
-    
-                $dataTblEndereco = $conn->prepare("SELECT * FROM endereco WHERE FK_Endereco_Contratante = ?");
+
+                $dataTblEndereco = $conn->prepare("SELECT * FROM Endereco WHERE FK_Endereco_Contratante = ?");
                 $rsc2 = $dataTblEndereco->execute([$_GET["FK_Endereco_Contratante"]]);
                 $dataTblEndereco = $dataTblEndereco->fetch();
-    
-                $dataTblPlanoContratado = $conn->prepare("SELECT * FROM planoContratado WHERE FK_PlanoContratado_Contratante = ?");
+
+                $dataTblPlanoContratado = $conn->prepare("SELECT * FROM PlanoContratado WHERE FK_PlanoContratado_Contratante = ?");
                 $rsc3 = $dataTblPlanoContratado->execute([$_GET["FK_PlanoContratado_Contratante"]]);
                 $dataTblPlanoContratado = $dataTblPlanoContratado->fetch();
-    
+
                 $dataTblPlano = $conn->prepare("SELECT * FROM plano");
                 $rsc4 = $dataTblPlano->execute();
                 $dataTblPlano = $dataTblPlano->fetch();
-    
+
                 $dataTblDependente = $conn->prepare("SELECT * FROM dependente WHERE FK_Dependente_Contratante = ?");
                 $rsc5 = $dataTblDependente->execute([$_GET["FK_Dependente_Contratante"]]);
                 $dataTblDependente = $dataTblDependente->fetch();
 
-            } catch (PDOException $pe){
+            } catch (PDOExCEPtion $pe){
                 echo "ERROR: " . $pe->getMessage();
             }
-            
-            echo "<pre>";
-        print_r($dataTblContratante);
-        echo "</pre>";
         ?>
-
-        
-
     </header>
     <main>
         <br>
@@ -123,54 +116,54 @@
 
                     <div class="row">
                     <div class="col-10" id="ajustes">
-                            <label for="nome">Nome:
-                                <input type="text" id="nome" name="nome" value="<?= $dataTblContratante['Nome'] ?>">
+                            <label for="Nome">Nome:
+                                <input type="text" id="Nome" name="Nome" value="<?= $dataTblContratante['Nome'] ?>">
                             </label>
                         </div>
                         <div class="col-2" id="ajustes">
                             <label for="contratoNumero">Contrato Nº:
-                                <input type="text" id="contratoNumero" name="contratoNumero" value="<?= $dataTblContratante['ContratoNumero'] ?>">
+                                <input type="text" id="contratoNumero" name="contratoNumero" value="<?= $dataTblContratante['idContratante']?>">
                             </label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-4" id="ajustes">
-                            <label for="cpf">CPF:
-                                <input type="text" id="cpf" name="cpf" value="<?= $dataTblContratante['CPF'] ?>">
+                            <label for="CPF">CPF:
+                                <input type="text" id="CPF" name="CPF" value="<?= $dataTblContratante['CPF'] ?>">
                             </label>
                         </div>
                         <div class="col-2" id="ajustes">
-                            <label for="rg">RG:
-                                <input type="text" id="rg" name="rg" value="<?= $dataTblContratante['RG'] ?>">
+                            <label for="RG">RG:
+                                <input type="text" id="RG" name="RG" value="<?= $dataTblContratante['RG'] ?>">
                             </label>
                         </div>
                         <div class="col-3" id="ajustes">
-                            <label for="dataNascimento">Data de Nascimento:
-                                <input type="text" id="dataNascimento" name="dataNascimento" value="<?= $dataTblContratante['DataNascimento'] ?>">
+                            <label for="DataNascimento">Data de Nascimento:
+                                <input type="text" id="DataNascimento" name="DataNascimento" value="<?= $dataTblContratante['DataNascimento'] ?>">
                             </label>
                         </div>
                         <div class="col-3" id="ajustes">
-                            <label for="profissao">Profissão:
-                                <input type="text" id="profissao" name="profissao" value="<?= $dataTblContratante['Profissao'] ?>">
+                            <label for="Profissao">Profissão:
+                                <input type="text" id="Profissao" name="Profissao" value="<?= $dataTblContratante['Profissao'] ?>">
                             </label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-7" id="ajustes">
-                            <label for="endereco">Endereço:
-                                <input type="text" id="endereco" name="endereco" value="<?= $dataTblEndereco['Endereco'] ?>">
+                            <label for="Endereco">Endereço:
+                                <input type="text" id="Endereco" name="Endereco" value="<?= $dataTblEndereco['Endereco'] ?>">
                             </label>
                         </div>
                         <div class="col-2" id="ajustes">
-                            <label for="numero">Nº:
-                                <input type="text" id="numero" name="numero" value="<?= $dataTblEndereco['Numero'] ?>">
+                            <label for="Numero">Nº:
+                                <input type="text" id="Numero" name="Numero" value="<?= $dataTblEndereco['Numero'] ?>">
                             </label>
                         </div>
                         <div class="col-3" id="ajustes">
-                            <label for="bairro">Bairro:
-                                <input type="text" id="bairro" name="bairro" value="<?= $dataTblEndereco['Bairro'] ?>">
+                            <label for="Bairro">Bairro:
+                                <input type="text" id="Bairro" name="Bairro" value="<?= $dataTblEndereco['Bairro'] ?>">
                             </label>
                         </div>
                     </div>
@@ -178,40 +171,40 @@
                     <div class="row">
                         <div class="col-9" id="multiplaEscolha"> <span>Sexo:</span>
                             <div class="form-check form-check-inline">
-                                <label class="form-check-label" for="sexoMasculino">
+                                <label class="form-check-label" for="SexoMasculino">
                                     Masculino
                                 </label>
-                                <input class="form-check-input" type="radio" name="sexo" id="sexoMasculino" value="M" <?= ($dataTblContratante['Sexo'] == "M" ? "checked" : "") ?>>
+                                <input class="form-check-input" type="radio" name="Sexo" id="SexoMasculino" value="M" <?= ($dataTblContratante['Sexo'] == "M" ? "checked" : "") ?>>
                             </div>
                             <div class="form-check form-check-inline">
-                                <label class="form-check-label" for="sexoFeminino">
+                                <label class="form-check-label" for="SexoFeminino">
                                     Feminino
                                 </label>
-                                <input class="form-check-input" type="radio" name="sexo" id="sexoFeminino" value="F" <?= ($dataTblContratante['Sexo'] == "F" ? "checked" : "") ?>>
+                                <input class="form-check-input" type="radio" name="Sexo" id="SexoFeminino" value="F" <?= ($dataTblContratante['Sexo'] == "F" ? "checked" : "") ?>>
                             </div>
                             <div class="form-check form-check-inline">
-                                <label class="form-check-label" for="sexoNaoBinario">
+                                <label class="form-check-label" for="SexoNaoBinario">
                                     Não-binário
                                 </label>
-                                <input class="form-check-input" type="radio" name="sexo" id="sexoNaoBinario" value="N/B" <?= ($dataTblContratante['Sexo'] == "N/B" ? "checked" : "") ?>>
+                                <input class="form-check-input" type="radio" name="Sexo" id="SexoNaoBinario" value="N/B" <?= ($dataTblContratante['Sexo'] == "N/B" ? "checked" : "") ?>>
                             </div>
                             </div>
                         <div class="col-3" id="ajustes">
-                            <label for="celular">Celular:
-                                <input type="text" id="celular" name="celular" value="<?= $dataTblContratante['Celular'] ?>">
+                            <label for="Celular">Celular:
+                                <input type="text" id="Celular" name="Celular" value="<?= $dataTblContratante['Celular'] ?>">
                             </label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-4" id="ajustes">
-                            <label for="cidade">Cidade:
-                                <input type="text" id="cidade" name="cidade" value="<?= $dataTblEndereco['Cidade'] ?>">
+                            <label for="Cidade">Cidade:
+                                <input type="text" id="Cidade" name="Cidade" value="<?= $dataTblEndereco['Cidade'] ?>">
                             </label>
                         </div>
                         <div class="col-3" id="ajustes">
-                            <label for="estado">Estado:
-                                <select name="estado" id="estado" class="form-control selectpicker selectuf" data-style="btn btn-link" required="">
+                            <label for="Estado">Estado:
+                                <select name="Estado" id="Estado" class="form-control selectpicker selectuf" data-style="btn btn-link" required="">
                                     <option value="" disabled="" selected=""></option>
                                     <option <?= ($dataTblEndereco['Estado'] == "1" ? "selected" : "") ?> value="1">Acre</option>
                                     <option <?= ($dataTblEndereco['Estado'] == "2" ? "selected" : "") ?> value="2">Alagoas</option>
@@ -238,7 +231,7 @@
                                     <option <?= ($dataTblEndereco['Estado'] == "23" ? "selected" : "") ?> value="23">Roraima</option>
                                     <option <?= ($dataTblEndereco['Estado'] == "24" ? "selected" : "") ?> value="24">Santa Catarina</option>
                                     <option <?= ($dataTblEndereco['Estado'] == "25" ? "selected" : "") ?> value="25">São Paulo</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "26" ? "selected" : "") ?> value="26">Sergipe</option>
+                                    <option <?= ($dataTblEndereco['Estado'] == "26" ? "selected" : "") ?> value="26">SeRGipe</option>
                                     <option <?= ($dataTblEndereco['Estado'] == "27" ? "selected" : "") ?> value="27">Tocantins</option>
                                 </select>
                             </label>
@@ -249,16 +242,16 @@
                             </label>
                         </div>
                         <div class="col-3" id="ajustes">
-                            <label for="telefone">Telefone:
-                                <input type="text" id="telefone" name="telefone" value="<?= $dataTblContratante['Telefone'] ?>">
+                            <label for="Telefone">Telefone:
+                                <input type="text" id="Telefone" name="Telefone" value="<?= $dataTblContratante['Telefone'] ?>">
                             </label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-4" id="ajustes">
-                            <label for="planoContratado">Plano Contratado:
-                                <input type="text" id="planoContratado" name="planoContratado">
+                            <label for="PlanoContratado">Plano Contratado:
+                                <input type="text" id="PlanoContratado" name="PlanoContratado">
                             </label>
                         </div>
                         <div class="col-6" id="multiplaEscolha"><span>Método Cobrança:</span>
@@ -266,32 +259,32 @@
                                 <label class="form-check-label" for="cartaoCredito">
                                     Cartão de crédito
                                 </label>
-                                <input class="form-check-input" type="radio" name="metodoCobranca" id="cartaoCredito" value="1" <?= ($dataTblPlanoContratado['MetodoCobranca'] == "1" ? "checked" : "") ?>>
+                                <input class="form-check-input" type="radio" name="MetodoCobranca" id="cartaoCredito" value="1" <?= ($dataTblPlanoContratado['MetodoCobranca'] == "1" ? "checked" : "") ?>>
                             </div>
                             <div class="form-check form-check-inline">
-                                <label class="form-check-label" for="energisa">
+                                <label class="form-check-label" for="Energisa">
                                     Energisa
                                 </label>
-                                <input class="form-check-input" type="radio" name="metodoCobranca" id="energisa" value="2" <?= ($dataTblPlanoContratado['MetodoCobranca'] == "2" ? "checked" : "") ?>>
+                                <input class="form-check-input" type="radio" name="MetodoCobranca" id="Energisa" value="2" <?= ($dataTblPlanoContratado['MetodoCobranca'] == "2" ? "checked" : "") ?>>
                             </div>
                             <div class="form-check form-check-inline">
-                                <label class="form-check-label" for="sexoNaoBinario">
+                                <label class="form-check-label" for="SexoNaoBinario">
                                     Carnê
                                 </label>
-                                <input class="form-check-input" type="radio" name="metodoCobranca" id="sexoNaoBinario" value="3" <?= ($dataTblPlanoContratado['MetodoCobranca'] == "3" ? "checked" : "") ?>>
+                                <input class="form-check-input" type="radio" name="MetodoCobranca" id="SexoNaoBinario" value="3" <?= ($dataTblPlanoContratado['MetodoCobranca'] == "3" ? "checked" : "") ?>>
                             </div>
                         </div>
 
                         <div class="col-2" id="ajustes">
-                            <label for="vencimento">Vencimento:
-                                <input type="text" id="vencimento" name="vencimento" value="<?= $dataTblPlanoContratado['Vencimento'] ?>">
+                            <label for="Vencimento">Vencimento:
+                                <input type="text" id="Vencimento" name="Vencimento" value="<?= $dataTblPlanoContratado['Vencimento'] ?>">
                             </label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-3" id="ajustes">
-                            <label for="estadoCivil">Estado Civil:
+                            <label for="EstadoCivil">Estado Civil:
                                 <select name="EstadoCivil" id="EstadoCivil" class="form-control selectpicker selectuf" data-style="btn btn-link" required="">
                                     <option value="" disabled="" selected=""></option>
                                     <option <?= ($dataTblContratante['EstadoCivil'] == "1" ? "selected" : "") ?> value="1">Solteiro</option>
@@ -303,13 +296,13 @@
                             </label>
                         </div>
                         <div class="col-7" id="ajustes">
-                            <label for="email">E-mail:
-                                <input type="email" id="email" name="email" value="<?= $dataTblContratante['Email'] ?>">
+                            <label for="Email">E-mail:
+                                <input type="Email" id="Email" name="Email" value="<?= $dataTblContratante['Email'] ?>">
                             </label>
                         </div>
                         <div class="col-2" id="ajustes">
-                            <label for="valor">Valor:
-                                <input type="text" id="valor" name="valor" value="<?= $dataTblPlanoContratado['Valor'] ?>">
+                            <label for="Valor">Valor:
+                                <input type="text" id="Valor" name="Valor" value="<?= $dataTblPlanoContratado['Valor'] ?>">
                             </label>
                         </div>
                     </div>
@@ -321,48 +314,99 @@
                     </div>
 
                     <div class="row" id="cabecalhoDependentes">
-                        <label class="col-5 nomeColunaDependentes1">NOME</label>
-                        <label class="col-2 nomeColunaDependentes1 nomeColunaDependentes2">DATA DE NASCIMENTO </label>
-                        <label class="col-2 nomeColunaDependentes1 nomeColunaDependentes2">GRAU DE PARENTESCO</label>
-                        <label class="col-3 nomeColunaDependentes2">CPF</label>
+                        <label class="col-5 NomeColunaDependentes1">Nome</label>
+                        <label class="col-2 NomeColunaDependentes1 NomeColunaDependentes2">DATA DE NASCIMENTO </label>
+                        <label class="col-2 NomeColunaDependentes1 NomeColunaDependentes2">GRAU DE PARENTESCO</label>
+                        <label class="col-3 NomeColunaDependentes2">CPF</label>
                     </div>
                     
-                    <?php $quantidadeDependentes = $conn->query("SELECT * FROM dependente");
-                    
-                    foreach($quantidadeDependentes as $dataTblDependente){
-                    ?><div class="row">
-                        <input type="text" id="nome" class="col-5  ajustes" placeholder="Nome:" 
+                    <?php 
+                        if (isset($dataTblDependente['FK_Dependente_Contratante'])) {
+
+                            $quantidadeDependentes = $conn->prepare("SELECT * FROM dependente WHERE FK_Dependente_Contratante = ?");
+                            $conversor = $quantidadeDependentes->execute([$_GET["FK_Dependente_Contratante"]]);
+                            $quantidadeDependentes = $quantidadeDependentes->fetchAll();
+
+                            foreach ($quantidadeDependentes as $dataTblDependente) {
+                                $count = 1;
+                                $count = $count +1;
+                        ?><div class="row">
+                            <input type="hidden" class="form-control" maxlength="30" name="idDependente[]"  id="idDependente" 
+                                    <?php 
+                                    if (isset($dataTblDependente['idDependente'])) {$idDependente = $dataTblDependente['idDependente'];
+                                    } else {
+                                        $idDependente = "";
+                                    }
+                                ?> value="<?= $idDependente ?>">
+
+                            <input type="text" id="NomeDependente" class="col-5  ajustes" placeholder="Nome:" 
+                                <?php 
+                                    if (isset($dataTblDependente['NomeDependente'])) {$NomeDependente = $dataTblDependente['NomeDependente'];
+                                    } else {
+                                        $NomeDependente = "";
+                                    }
+                                ?> value="<?= $NomeDependente ?>">
+
+                            <input type="date" id="DataNascimentoDependente" class="col-2 ajustes" placeholder="Data de nascimento:" 
+                                <?php 
+                                    if (isset($dataTblDependente['DataNascimentoDependente'])) {$DataNascimentoDendente = $dataTblDependente['DataNascimentoDependente'];
+                                    } else {
+                                        $DataNascimentoDependente = "";
+                                    }
+                                ?> value="<?= $DataNascimentoDendente ?>">
+
+                            <input type="text" id="GrauParentesco" class="col-2 ajustes" placeholder="Grau de parentesco:" 
                             <?php 
-                                if (isset($dataTblDependente['Nome'])) {$nomeDependente = $dataTblDependente['Nome'];
+                                if (isset($dataTblDependente['GrauParentesco'])) {$dataGrauParentesco = $dataTblDependente['GrauParentesco'];
                                 } else {
-                                    $nomeDependente = "";
+                                    $dataGrauParentesco = "";
                                 }
-                            ?> value="<?= $nomeDependente ?>">
-                        <input type="date" id="dataNascimento" class="col-2 ajustes" placeholder="Data de nascimento:" 
+                            ?> value="<?= $dataGrauParentesco ?>">
+
+                            <input type="text" id="CPFDependente" class="col-3 ajustes" placeholder="CPF:"
                             <?php 
-                                if (isset($dataTblDependente['DataNascimento'])) {$dataNascimentoDendente = $dataTblDependente['DataNascimento'];
+                                if (isset($dataTblDependente['CPFDependente'])) {$CPFDependente = $dataTblDependente['CPFDependente'];
                                 } else {
-                                    $dataNascimentoDendente = "";
+                                    $CPFDependente = "";
                                 }
-                            ?> value="<?= $dataNascimentoDendente ?>">
-                        <input type="text" id="grauParentesco" class="col-2 ajustes" placeholder="Grau de parentesco:" 
+                            ?> value="<?= $CPFDependente ?>">
+                        </div>
+                        <?php
+                        }; 
+                        while ($count < 10) {
+                            $count = $count + 1;
+                            ?>
+                            <div class="row">
+                                <input type="hidden" class="form-control" maxlength="30" name="idDependente[]"  id="idDependente">
+
+                                <input type="text" id="NomeDependente" class="col-5  ajustes" placeholder="Nome:">
+                                
+                                <input type="date" id="DataNascimentoDependente" class="col-2 ajustes" placeholder="Data de nascimento:">
+                                
+                                <input type="text" id="GrauParentesco" class="col-2 ajustes" placeholder="Grau de parentesco:">
+                                
+                                <input type="text" id="CPFDependente" class="col-3 ajustes" placeholder="CPF:">
+                            </div>
                         <?php 
-                            if (isset($dataTblDependente['GrauParentesco'])) {$dataGrauParentesco = $dataTblDependente['GrauParentesco'];
-                            } else {
-                                $dataGrauParentesco = "";
-                            }
-                        ?> value="<?= $dataGrauParentesco ?>">
-                        <input type="text" id="cpf" class="col-3 ajustes" placeholder="CPF:"
-                        <?php 
-                            if (isset($dataTblDependente['CPF'])) {$dataCPF = $dataTblDependente['CPF'];
-                            } else {
-                                $dataCPF = "";
-                            }
-                        ?> value="<?= $dataCPF ?>">
-                    </div>
-                    <?php
-                    }
-                    ?>
+                        }} else {
+                            $count = 0;
+                            while ($count < 10) {
+                                $count = $count + 1;
+                                ?>
+                                <div class="row">
+                                    <input type="hidden" class="form-control" maxlength="30" name="idDependente[]"  id="idDependente">
+
+                                    <input type="text" id="NomeDependente" class="col-5  ajustes" placeholder="Nome:">
+                                    
+                                    <input type="date" id="DataNascimentoDependente" class="col-2 ajustes" placeholder="Data de nascimento:">
+                                    
+                                    <input type="text" id="GrauParentesco" class="col-2 ajustes" placeholder="Grau de parentesco:">
+                                    
+                                    <input type="text" id="CPFDependente" class="col-3 ajustes" placeholder="CPF:">
+                                </div>
+                            <?php 
+                        }}
+                        ?>
                 </div>
 
                 <div id="texto1" class="row">

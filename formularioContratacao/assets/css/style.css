@@ -8,8 +8,8 @@ main {
 
 #cabecalho {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    maRGin-left: auto;
+    maRGin-right: auto;
     width: 50%;
 }
 
@@ -36,11 +36,11 @@ form {
     font-size: small;
 }
 
-.nomeColunaDependentes1 {
+.NomeColunaDependentes1 {
     border-right: 1px solid #212121;
 }
 
-.nomeColunaDependentes2 {
+.NomeColunaDependentes2 {
     border-left: 1px solid #212121;
 }
 
@@ -60,7 +60,7 @@ div {
     display: inline-block;
 }
 
-#estado {
+#Estado {
     display: inline;
     width: min-content;
     padding-right: 55px;
@@ -76,7 +76,7 @@ div {
     padding-bottom: 0px;
 }
 
-#email {
+#Email {
     padding-right: 200px;
     width: min-content;
 }
@@ -96,7 +96,7 @@ select {
 }
 
 #paragrafo3 {
-    margin-bottom: 0px;
+    maRGin-bottom: 0px;
     text-align: center;
     font-size: smaller;
 }

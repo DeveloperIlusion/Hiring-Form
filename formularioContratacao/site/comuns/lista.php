@@ -17,10 +17,6 @@
             
             <h2>Lista de Contratantes</h2>
 
-            <p>
-                <a href="form.php?acao=insert" class="btn btn-outline-success" title="Cadastrar contratante">Cadastrar</a>
-            </p>
-
             <?php
                 if (isset($_GET['msgSucesso'])) {
                     ?>
@@ -79,10 +75,13 @@
                             <?php
                         }
 
-                    } catch (PDOException $pe) {
+                    } catch (PDOExCEPtion $pe) {
                         echo "ERROR: " . $pe->getMessage();
                     }
                     ?>
+                    <p>
+                        <a href="form.php?acao=insert" class="btn btn-outline-success" title="Cadastrar contratante">Cadastrar</a>
+                    </p>
                 </tbody>
             </table>
         </div>

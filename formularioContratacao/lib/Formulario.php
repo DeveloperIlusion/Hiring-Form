@@ -31,7 +31,7 @@ class Formulario
         $cTexto = '        
         <br />
         <br /><section class="container">
-                    <div class="row" style="margin-bottom: 30px;">
+                    <div class="row" style="maRGin-bottom: 30px;">
                         <div class="col-10">
                             <h3>' . $titulo . '</h3>
                         </div>
