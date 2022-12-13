@@ -4,9 +4,11 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" href="../../assets/img/Logo Up Assistência Cor.png" type="image/png">
         <title>Lista de Contratantes</title>
 
-        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="../../assets/css/styleLista.css" rel="stylesheet">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
@@ -15,7 +17,13 @@
     <body>
         <div class="container"> 
             
-            <h2>Lista de Contratantes</h2>
+            <h2 id="tituloLista">__Lista de Contratantes__</h2>
+            
+            <img src="../../assets/img/Logo Up Assistência Cor.png" id="logoUP" type="image/png">
+
+            <p>
+                <a href="form.php?acao=insert" class="btn btn-outline-success" title="Cadastrar contratante" id="botaoCadastrar">Cadastrar</a>
+            </p>
 
             <?php
                 if (isset($_GET['msgSucesso'])) {
@@ -35,7 +43,7 @@
                 }
             ?>
 
-            <table class="table table-responsive table-bordered table-striped table-sm">
+            <table class="table table-responsive table-bordered table-striped table-sm" id="tabelaLista">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -51,7 +59,7 @@
                     <?php
                     try {        
                         $conn = new PDO(
-                            "mysql:host=localhost;dbname=formulariocontratante",
+                            "mysql:host=localhost;port=3306;dbname=formulariocontratante",
                             "root",
                             ""
                         );
@@ -68,7 +76,7 @@
                                 <td><?= $value['Telefone'] ?></td>
                                 <td>
                                     <a href="../../index.php?idContratante=<?= $value['idContratante'] ?>&FK_Endereco_Contratante=<?= $value['idContratante'] ?>&FK_PlanoContratado_Contratante=<?= $value['idContratante'] ?>&FK_Dependente_Contratante=<?= $value['idContratante'] ?>" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
-                                    <a href="form.php?acao=update&idContratante=<?= $value['idContratante'] ?>&FK_Endereco_Contratante=<?= $value['idContratante'] ?>&FK_PlanoContratado_Contratante=<?= $value['idContratante'] ?>&FK_Dependente_Contratante=<?= $value['idContratante'] ?>" class="btn btn-outline-warning" title="Alteração dos dads do registro">Alterar</a>
+                                    <a href="form.php?acao=update&idContratante=<?= $value['idContratante'] ?>&FK_Endereco_Contratante=<?= $value['idContratante'] ?>&FK_PlanoContratado_Contratante=<?= $value['idContratante'] ?>&FK_Dependente_Contratante=<?= $value['idContratante'] ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
                                     <a href="form.php?acao=delete&idContratante=<?= $value['idContratante'] ?>&FK_Endereco_Contratante=<?= $value['idContratante'] ?>&FK_PlanoContratado_Contratante=<?= $value['idContratante'] ?>&FK_Dependente_Contratante=<?= $value['idContratante'] ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
                                 </td>
                             </tr>
@@ -79,9 +87,6 @@
                         echo "ERROR: " . $pe->getMessage();
                     }
                     ?>
-                    <p>
-                        <a href="form.php?acao=insert" class="btn btn-outline-success" title="Cadastrar contratante">Cadastrar</a>
-                    </p>
                 </tbody>
             </table>
         </div>

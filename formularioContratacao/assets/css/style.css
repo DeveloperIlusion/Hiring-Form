@@ -46,6 +46,8 @@ form {
 
 #multiplaEscolha {
     border: solid 1px #212121;
+    padding: 0px;
+    padding-left: 12px;
 }
 
 div {
@@ -61,11 +63,12 @@ div {
 }
 
 #Estado {
-    display: inline;
+    display: inline-block;
     width: min-content;
     padding-right: 55px;
     padding-top: 0px;
     padding-bottom: 0px;
+    margin: 0px;
 }
 
 #EstadoCivil {
@@ -77,12 +80,33 @@ div {
 }
 
 #Email {
-    padding-right: 200px;
+    width: max-content;
+    min-width: max-content;
+    padding-right: 20px;
+}
+
+#Vencimento {
+    display: inline-block;
+}
+
+#Valor {
+    width: max-content;
+    max-width: 130px;
+    padding: 0;
+}
+
+#idPlano {
+    display: inline;
     width: min-content;
+    padding-right: 44%;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 select {
     border: none !important;
+    padding-left: 1px !important;
+    margin-left: 1px !important;
 }
 
 #paragrafo1 {

@@ -12,7 +12,7 @@
 
             $dataTblContratante = $conn->prepare("INSERT INTO contratante 
                                     (Nome, CPF, RG, DataNascimento, Sexo, EstadoCivil, Email, Profissao, Celular, Telefone)
-                                    VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )");
+                                    VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             $dataTblContratante->execute([
                 $_POST['Nome'], 
@@ -27,9 +27,13 @@
                 $_POST['Telefone']
             ]);
 
+
+            $idCliente = $conn->lastInsertId();
+            
+            
             $dataTblEndereco = $conn->prepare("INSERT INTO endereco 
-                                (Endereco, Numero, Bairro, Cidade, Estado, CEP)
-                                VALUES ( ?, ?, ?, ?, ?, ?)");
+                                (Endereco, Numero, Bairro, Cidade, Estado, CEP, FK_Endereco_Contratante)
+                                VALUES ( ?, ?, ?, ?, ?, ?, ?)");
 
             $dataTblEndereco->execute([
                 $_POST['Endereco'], 
@@ -37,34 +41,48 @@
                 $_POST['Bairro'], 
                 $_POST['Cidade'], 
                 $_POST['Estado'], 
-                $_POST['CEP']
+                $_POST['CEP'],
+                $idCliente
             ]);  
-
+            
             $dataTblPlanoContratado = $conn->prepare("INSERT INTO planocontratado 
-                                ( MetodoCobranca, Valor, Vencimento)
-                                VALUES ( ?, ?, ?)");
+                                ( PlanoContratado, MetodoCobranca, Valor, Vencimento, FK_PlanoContratado_Contratante)
+                                VALUES ( ?, ?, ?, ?, ?)");
 
             $dataTblPlanoContratado->execute([ 
+                $_POST['idPlano'],
                 $_POST['MetodoCobranca'],
                 $_POST['Valor'], 
-                $_POST['Vencimento']
-            ]);  
+                $_POST['Vencimento'],
+                $idCliente
+            ]);
+
+            foreach (  $_POST['NomeDependente'] as $cont => $dep ) {
+
+                if (empty($dep)) {
+                    break;
+                }
+
+                $dependente = [
+                    $dep, 
+                    $_POST["DataNascimentoDependente"][$cont],
+                    $_POST["GrauParentesco"][$cont],
+                    $_POST["CPFDependente"][$cont],
+                    $idCliente
+                ];
 
             $dataTblDependente = $conn->prepare("INSERT INTO dependente
-                                (NomeDependente, DataNascimentoDependente, GrauParentesco, CPFDependente)
-                                VALUES ( ?, ?, ?, ?)");
+                                (NomeDependente, DataNascimentoDependente, GrauParentesco, CPFDependente, FK_Dependente_Contratante)
+                                VALUES ( ?, ?, ?, ?, ?)");
 
-            $dataTblDependente->execute([
-                $_POST['NomeDependente'], 
-                $_POST['DataNascimentoDependente'], 
-                $_POST['GrauParentesco'], 
-                $_POST['CPFDependente']
-            ]);  
+            $dataTblDependente->execute($dependente);
+
+        };
 
             if ($conn->lastInsertId() > 0) {
-                header("Location: lista.php?msgSucesso=Município cadastrado com sucesso.");
+                header("Location: lista.php?msgSucesso=Contratante cadastrado com sucesso.");
             } else {
-                header("Location: lista.php?msgError=Falha no cadastro do município.");
+                header("Location: lista.php?msgError=Falha no cadastro do contratante.");
             }
 
         } catch (PDOExCEPtion $pe) {
@@ -72,19 +90,19 @@
             
             $conn=mysqli_connect('localhost','root','','formulariocontratante');
 
-            //if(isset($_POST['CPF']) && isset($_POST['RG']))
-              //  $CPF = $_POST['CPF'];
-                //$RG = $_POST['RG'];
-                //$CPFDuplicado=mysqli_query($conn,"select * from contratante where CPF='$CPF'");
-                //$RGDuplicado=mysqli_query($conn,"select * from contratante where RG='$RG'");
+            if(isset($_POST['CPF']) && isset($_POST['RG']))
+                $CPF = $_POST['CPF'];
+                $RG = $_POST['RG'];
+                $CPFDuplicado=mysqli_query($conn,"select * from contratante where CPF='$CPF'");
+                $RGDuplicado=mysqli_query($conn,"select * from contratante where RG='$RG'");
 
-            //if (mysqli_num_rows($CPFDuplicado)>0) {
-               // header("Location: lista.php?msgError=Este CPF já foi cadastrado.");
-            //} elseif (mysqli_num_rows($RGDuplicado)>0) {
-               // header("Location: lista.php?msgError=Este RG já foi cadastrado.");
-            //}
+            if (mysqli_num_rows($CPFDuplicado)>0) {
+                header("Location: lista.php?msgError=Este CPF já foi cadastrado.");
+            } elseif (mysqli_num_rows($RGDuplicado)>0) {
+                header("Location: lista.php?msgError=Este RG já foi cadastrado.");
+            }
         }
 
     } else {
-        //header("Location: form.php");
+        header("Location: form.php");
     }

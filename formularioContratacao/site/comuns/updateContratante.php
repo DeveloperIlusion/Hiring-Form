@@ -97,7 +97,7 @@
             $dataTblDependente->execute($dependente);
             }
 
-            if ($dataTblContratante->rowCount() > 0) {
+            if ($dataTblContratante or $dataTblEndereco or $dataTblPlanoContratado or $dataTblDependente->rowCount() > 0) {
                 header("Location: lista.php?msgSucesso=Dados do contratante alterados com sucesso.");
             } else {
                 header("Location: lista.php?msgError=Falha na alteração dos dados do contratante.");
