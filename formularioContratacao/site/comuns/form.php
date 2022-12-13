@@ -311,7 +311,7 @@
 
                     <div class="col-7">
                         <label for="Email" class="form-label">E-mail</label>
-                        <input type="Email" class="form-control" maxlength="255" name="Email"  id="Email" value="<?= $dataTblContratante['Email'] ?>">
+                        <input type="Email" class="form-control" maxlength="255" name="Email"  id="Email" value="<?= $dataTblContratante['Email'] ?>" required>
                     </div>
 
                     <div class="col-2">
