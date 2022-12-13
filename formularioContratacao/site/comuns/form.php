@@ -400,22 +400,22 @@
 
                                     <div class="col-5">
                                         <label for="NomeDependente" class="form-label">Nome</label>
-                                        <input type="text" class="form-control" maxlength="30" name="NomeDependente[]"  id="NomeDependente">
+                                        <input type="text" class="form-control" maxlength="255" name="NomeDependente[]"  id="NomeDependente">
                                     </div>
 
                                     <div class="col-2">
                                         <label for="DataNascimentoDependente" class="form-label">Data de nascimento</label>
-                                        <input type="date" class="form-control" maxlength="30" name="DataNascimentoDependente[]"  id="DataNascimentoDependente">
+                                        <input type="date" class="form-control" maxlength="10" name="DataNascimentoDependente[]"  id="DataNascimentoDependente">
                                     </div>
 
                                     <div class="col-2">
                                         <label for="GrauParentesco" class="form-label">Grau de parentesco</label>
-                                        <input type="text" class="form-control" maxlength="30" name="GrauParentesco[]"  id="GrauParentesco">
+                                        <input type="text" class="form-control" maxlength="20" name="GrauParentesco[]"  id="GrauParentesco">
                                     </div>
 
                                     <div class="col-3">
                                         <label for="CPFDependente" class="form-label">CPF</label>
-                                        <input type="text" class="form-control" maxlength="30" name="CPFDependente[]"  id="CPFDependente">
+                                        <input type="text" class="form-control" maxlength="13" name="CPFDependente[]"  id="CPFDependente">
                                     </div>
                                 </div>
                             <?php 
