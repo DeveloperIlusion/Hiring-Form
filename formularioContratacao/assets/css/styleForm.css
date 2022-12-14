@@ -1,0 +1,30 @@
+body {
+    color: rgb(4, 80, 110);
+}
+
+.form-control {
+    color: rgb(4, 80, 110);
+}
+
+label {
+    padding-top: 2px;
+    padding-bottom: 0px;
+}
+
+#tituloInicio {
+    color: rgb(5, 101, 139);
+    text-decoration: underline rgb(5, 101, 139);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+input:focus {
+    border-color: rgb(155, 0, 202) !important;
+    box-shadow: 0 0 8px rgb(155, 0, 202) !important;
+}
+
+.form-check-input:checked {
+    background-color: rgb(155, 0, 202);
+    border-color: rgb(155, 0, 202);
+}
