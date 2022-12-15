@@ -73,11 +73,11 @@
             $dataTblContratante = $dataTblContratante->fetch();
 
             $dataTblEndereco = $conn->prepare("SELECT * FROM Endereco WHERE FK_Endereco_Contratante = ?");
-            $rsc2 = $dataTblEndereco->execute([$_GET["idContratante"]]);
+            $rsc2 = $dataTblEndereco->execute([$_GET["FK_Endereco_Contratante"]]);
             $dataTblEndereco = $dataTblEndereco->fetch();
 
             $dataTblPlanoContratado = $conn->prepare("SELECT * FROM PlanoContratado WHERE FK_PlanoContratado_Contratante = ?");
-            $rsc3 = $dataTblPlanoContratado->execute([$_GET["idContratante"]]);
+            $rsc3 = $dataTblPlanoContratado->execute([$_GET["FK_PlanoContratado_Contratante"]]);
             $dataTblPlanoContratado = $dataTblPlanoContratado->fetch();
 
             $dataTblPlano = $conn->prepare("SELECT * FROM plano");
@@ -85,7 +85,7 @@
             $dataTblPlano = $dataTblPlano->fetchAll();
 
             $dataTblDependente = $conn->prepare("SELECT * FROM dependente WHERE FK_Dependente_Contratante = ?");
-            $rsc5 = $dataTblDependente->execute([$_GET["idContratante"]]);
+            $rsc5 = $dataTblDependente->execute([$_GET["FK_Dependente_Contratante"]]);
             $dataTblDependente = $dataTblDependente->fetch();
 
         } catch (PDOExCEPtion $pe) {
@@ -328,7 +328,7 @@
                         ?><h4>Dependentes</h4><?php
 
                         $quantidadeDependentes = $conn->prepare("SELECT * FROM dependente WHERE FK_Dependente_Contratante = ?");
-                        $conversor = $quantidadeDependentes->execute([$_GET["idContratante"]]);
+                        $conversor = $quantidadeDependentes->execute([$_GET["FK_Dependente_Contratante"]]);
                         $quantidadeDependentes = $quantidadeDependentes->fetchAll();
 
                         foreach ($quantidadeDependentes as $dataTblDependente) {
@@ -399,17 +399,17 @@
                                     <input type="hidden" class="form-control" maxlength="30" name="idDependente[]"  id="idDependente">
 
                                     <div class="col-5">
-                                        <label for="NomeDependente" class="form-label">Nome</label>
+                                        <label for="NomeDependente" class="form-label">Razão Social</label>
                                         <input type="text" class="form-control" maxlength="255" name="NomeDependente[]"  id="NomeDependente">
                                     </div>
 
                                     <div class="col-2">
-                                        <label for="DataNascimentoDependente" class="form-label">Data de nascimento</label>
+                                        <label for="DataNascimentoDependente" class="form-label">CNPJ</label>
                                         <input type="date" class="form-control" maxlength="10" name="DataNascimentoDependente[]"  id="DataNascimentoDependente">
                                     </div>
 
                                     <div class="col-2">
-                                        <label for="GrauParentesco" class="form-label">Grau de parentesco</label>
+                                        <label for="GrauParentesco" class="form-label">PIS/NIT</label>
                                         <input type="text" class="form-control" maxlength="20" name="GrauParentesco[]"  id="GrauParentesco">
                                     </div>
 

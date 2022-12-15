@@ -77,11 +77,11 @@
                 $dataTblContratante = $dataTblContratante->fetch();
 
                 $dataTblEndereco = $conn->prepare("SELECT * FROM Endereco WHERE FK_Endereco_Contratante = ?");
-                $rsc2 = $dataTblEndereco->execute([$_GET["FK_Endereco_Contratante"]]);
+                $rsc2 = $dataTblEndereco->execute([$_GET["idContratante"]]);
                 $dataTblEndereco = $dataTblEndereco->fetch();
 
                 $dataTblPlanoContratado = $conn->prepare("SELECT * FROM PlanoContratado WHERE FK_PlanoContratado_Contratante = ?");
-                $rsc3 = $dataTblPlanoContratado->execute([$_GET["FK_PlanoContratado_Contratante"]]);
+                $rsc3 = $dataTblPlanoContratado->execute([$_GET["idContratante"]]);
                 $dataTblPlanoContratado = $dataTblPlanoContratado->fetch();
 
                 $dataTblPlano = $conn->prepare("SELECT * FROM plano");
@@ -89,7 +89,7 @@
                 $dataTblPlano = $dataTblPlano->fetchAll();
 
                 $dataTblDependente = $conn->prepare("SELECT * FROM dependente WHERE FK_Dependente_Contratante = ?");
-                $rsc5 = $dataTblDependente->execute([$_GET["FK_Dependente_Contratante"]]);
+                $rsc5 = $dataTblDependente->execute([$_GET["idContratante"]]);
                 $dataTblDependente = $dataTblDependente->fetch();
 
             } catch (PDOExCEPtion $pe){
@@ -332,7 +332,7 @@
                         if (isset($dataTblDependente['FK_Dependente_Contratante'])) {
 
                             $quantidadeDependentes = $conn->prepare("SELECT * FROM dependente WHERE FK_Dependente_Contratante = ?");
-                            $conversor = $quantidadeDependentes->execute([$_GET["FK_Dependente_Contratante"]]);
+                            $conversor = $quantidadeDependentes->execute([$_GET["idContratante"]]);
                             $quantidadeDependentes = $quantidadeDependentes->fetchAll();
 
                             foreach ($quantidadeDependentes as $dataTblDependente) {

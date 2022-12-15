@@ -10,4 +10,7 @@
         echo $error->getMessage();
         die();
     }
+
+    else {
+    }
 ?>

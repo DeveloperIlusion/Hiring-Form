@@ -1,7 +1,7 @@
 <?php
     require __DIR__ . "/vendor/autoload.php";
 
-    use CoffeeCode\DataLayer\Connect;
+    /*use CoffeeCode\DataLayer\Connect;
 
     $conn = Connect::getInstance();
     $error = Connect::getError();
@@ -9,7 +9,7 @@
     if ($error){
         echo $error->getMessage();
         die();
-    }
+    } */
 
     use Source\Models\Contractor;
 
@@ -30,7 +30,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="icon" href="assets/img/Logo Up Assistência Cor.png" type="image/png">
-        <title>Lista de Contratantes</title>
+        <title>Lista de Empresas Contratantes</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
@@ -41,7 +41,7 @@
     <body>
         <div class="container"> 
             
-            <h2 id="tituloLista">__Lista de Contratantes__</h2>
+            <h2 id="tituloLista">__Lista de Empresas Contratantes__</h2>
             
             <img src="assets/img/Logo Up Assistência Cor.png" id="logoUP" type="image/png">
 
@@ -54,7 +54,7 @@
 
                     </div>
                     <div class="col-3" id="divInputFiltrar">
-                        <input class="form-control" id="inputFiltrar" type="text" name="k" value="<?php echo isset($_GET['k']) ? $_GET['k'] : ''; ?>" placeholder="Digite o nome que deseja filtrar" autocomplete="off">
+                        <input class="form-control" id="inputFiltrar" type="text" name="k" value="<?php echo isset($_GET['k']) ? $_GET['k'] : ''; ?>" placeholder="Digite a razão que deseja filtrar" autocomplete="off">
                     </div>
                     <div class="col-1" id="botaoFiltrar" >
                         <input class="btn btn-outline-up" type="submit" name="" value="Filtrar">
@@ -85,11 +85,10 @@
             <table class="table table-responsive table-bordered table-striped table-sm" id="tabelaLista">
                 <thead>
                     <tr>
-                        <th>Nome</th>
+                        <th>Razão Social</th>
+                        <th>CNPJ</th>
+                        <th>Razão do Responsável</th>
                         <th>CPF</th>
-                        <th>RG</th>
-                        <th>Celular</th>
-                        <th>Telefone</th>
                         <th>Opções</th>
                     </tr>
                 </thead>
@@ -97,6 +96,11 @@
                 <tbody>
                     <?php
                     try {        
+                        $conn = new PDO(
+                            "mysql:host=localhost;port=3306;dbname=formulariocontratante",
+                            "root",
+                            ""
+                        );
 
                         if (isset($_GET['k']) && $_GET['k']) {
 
@@ -108,7 +112,7 @@
                             $keyword = explode(' ',$k);
 
                             foreach ($keyword as $word) {
-                                $search_string .= "Nome LIKE '%".$word."%' OR ";
+                                $search_string .= "RazaoSocial LIKE '%".$word."%' OR ";
                                 $display_words .= $word.' ';
                             }
                             $search_string = substr($search_string, 0, strlen($search_string)-4);
@@ -126,14 +130,14 @@
                                     foreach ($receber as $row){
                                     ?>
                                         <tr>
-                                            <td><?= $row->Nome ?></td>
-                                            <td><?= $row->RG ?></td>
-                                            <td><?= $row->CPF ?></td>
-                                            <td><?= $row->Celular ?></td>
-                                            <td><?= $row->Telefone ?></td>
-                                            <td><a href="site/contrato.php?idContratante=<?= $row->idContratante ?>" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
-                                            <a href="site/form.php?acao=update&idContratante=<?= $row->idContratante ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
-                                            <a href="site/form.php?acao=delete&idContratante=<?= $row->idContratante ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
+                                            <td><?= $row['RazaoSocial'] ?></td>
+                                            <td><?= $row['RG'] ?></td>
+                                            <td><?= $row['CPF'] ?></td>
+                                            <td><?= $row['Celular'] ?></td>
+                                            <td><?= $row['Telefone'] ?></td>
+                                            <td><a href="site/contrato.php?idContratante=<?= $row['idContratante'] ?>&FK_Endereco_Contratante=<?= $row['idContratante'] ?>&FK_PlanoContratado_Contratante=<?= $row['idContratante'] ?>&FK_Dependente_Contratante=<?= $row['idContratante'] ?>" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
+                                            <a href="site/form.php?acao=update&idContratante=<?= $row['idContratante'] ?>&FK_Endereco_Contratante=<?= $row['idContratante'] ?>&FK_PlanoContratado_Contratante=<?= $row['idContratante'] ?>&FK_Dependente_Contratante=<?= $row['idContratante'] ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
+                                            <a href="site/form.php?acao=delete&idContratante=<?= $row['idContratante'] ?>&FK_Endereco_Contratante=<?= $row['idContratante'] ?>&FK_PlanoContratado_Contratante=<?= $row['idContratante'] ?>&FK_Dependente_Contratante=<?= $row['idContratante'] ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
                                             </td>
                                         </tr>
                                     <?php
@@ -143,18 +147,19 @@
                                 }
                         
                         } else {
-                            foreach ($list as $value) {
+                            $dataTblContratante = $conn->query("SELECT * FROM contratante ORDER BY Nome");
+
+                            foreach ($dataTblContratante as $value) {
                                 ?>
                                 <tr>
-                                    <td><?= $value->Nome ?></td>
-                                    <td><?= $value->CPF ?></td>
-                                    <td><?= $value->RG ?></td>
-                                    <td><?= $value->Celular ?></td>
-                                    <td><?= $value->Telefone ?></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td>
-                                        <a href="site/contrato.php?idContratante=<?= $value->idContratante ?>" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
-                                        <a href="site/form.php?acao=update&idContratante=<?= $value->idContratante ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
-                                        <a href="site/form.php?acao=delete&idContratante=<?= $value->idContratante ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
+                                        <a href="site/contratoPAF.php?idContratante=<?= $value['idContratante'] ?>&FK_Endereco_Contratante=<?= $value['idContratante'] ?>&FK_PlanoContratado_Contratante=<?= $value['idContratante'] ?>&FK_Dependente_Contratante=<?= $value['idContratante'] ?>" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
+                                        <a href="site/formPAF.php?acao=update&idContratante=<?= $value['idContratante'] ?>&FK_Endereco_Contratante=<?= $value['idContratante'] ?>&FK_PlanoContratado_Contratante=<?= $value['idContratante'] ?>&FK_Dependente_Contratante=<?= $value['idContratante'] ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
+                                        <a href="site/formPAF.php?acao=delete&idContratante=<?= $value['idContratante'] ?>&FK_Endereco_Contratante=<?= $value['idContratante'] ?>&FK_PlanoContratado_Contratante=<?= $value['idContratante'] ?>&FK_Dependente_Contratante=<?= $value['idContratante'] ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
                                     </td>
                                 </tr>
                                 <?php

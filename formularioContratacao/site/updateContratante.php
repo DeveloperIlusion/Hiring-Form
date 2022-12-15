@@ -8,10 +8,7 @@
                 ""
             );
 
-            $idContratante = $_POST['idContratante'];
-            $FK_Endereco_Contratante = $_POST['idContratante'];
-            $FK_PlanoContratado_Contratante = $_POST['idContratante'];
-            $FK_Dependente_Contratante = $_POST['idContratante'];
+            $idContratante -> idContratante;
             
             $dadosContratante = [
                 $_POST['Nome'],
@@ -34,7 +31,7 @@
                 $_POST['Cidade'],
                 $_POST['Estado'],
                 $_POST['CEP'],
-                $FK_Endereco_Contratante
+                $idContratante
             ];
 
             $dadosPlano = [
@@ -45,17 +42,17 @@
                 $_POST['MetodoCobranca'],
                 $_POST['Valor'],
                 $_POST['Vencimento'],
-                $FK_PlanoContratado_Contratante
+                $idContratante
             ];
 
-            $dadosDependente = [
-                "Nomes" => $_POST['NomeDependente'],
-                "Data" => $_POST['DataNascimentoDependente'],
-                "Grau" => $_POST['GrauParentesco'],
-                "CPF" => $_POST['CPFDependente'],
-                "idDependente" => $_POST['idDependente']
-            ];
-
+            if(isset($idContratante)){$dadosDependente = [
+                    "Nomes" => $_POST['NomeDependente'],
+                    "Data" => $_POST['DataNascimentoDependente'],
+                    "Grau" => $_POST['GrauParentesco'],
+                    "CPF" => $_POST['CPFDependente'],
+                    "idDependente" => $_POST['idDependente']
+                ];
+            }
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $dataTblContratante = $conn->prepare("UPDATE contratante 
@@ -70,17 +67,17 @@
             $dataTblEndereco = $conn->prepare("UPDATE endereco 
                                     SET Endereco = ?,  Numero = ?, Bairro = ?, 
                                     Cidade = ?, Estado = ?, CEP = ?
-                                    WHERE FK_Endereco_Contratante = ?");
+                                    WHERE idContratante = ?");
             
             $dataTblEndereco->execute($dadosEndereco);
            
             $dataTblPlanoContratado = $conn->prepare("UPDATE planocontratado 
                                     SET  MetodoCobranca = ?, Valor = ?, Vencimento = ?
-                                    WHERE FK_PlanoContratado_Contratante = ?");
+                                    WHERE idContratante = ?");
             
             $dataTblPlanoContratado->execute($dadosPlanoContratado);
 
-            foreach ( $dadosDependente["Nomes"] as $cont => $dep ) {
+            if(isset($dadosDependente)) {foreach ( $dadosDependente["Nomes"] as $cont => $dep ) {
 
                 $dependente = [
                     $dep, 
@@ -95,7 +92,7 @@
                                     WHERE idDependente = ?");
             
             $dataTblDependente->execute($dependente);
-            }
+            }}
 
             if ($dataTblContratante or $dataTblEndereco or $dataTblPlanoContratado or $dataTblDependente->rowCount() > 0) {
                 header("Location: ../index.php?msgSucesso=Dados do contratante alterados com sucesso.");

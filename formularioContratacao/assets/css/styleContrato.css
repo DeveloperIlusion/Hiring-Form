@@ -8,9 +8,13 @@ main {
 
 #cabecalho {
     display: block;
-    maRGin-left: auto;
-    maRGin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
+}
+
+#cabecalhoContratoPAF {
+    text-align: center;
 }
 
 #logoUP {
@@ -31,6 +35,11 @@ form {
     background-color: #44546a;
     color: white;
     border: 1px solid #212121;
+}
+
+#titulosTabela {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #cabecalhoDependentes {
@@ -58,6 +67,7 @@ div {
     background-color: transparent;
 }
 
+
 .ajustes{
     border: 1px solid #212121;
 }
@@ -73,6 +83,15 @@ div {
     padding-top: 0px;
     padding-bottom: 0px;
     margin: 0px;
+}
+
+#UF {
+   display: inline-block;
+    width: min-content;
+    padding-right: 55px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0px; 
 }
 
 #EstadoCivil {
@@ -155,8 +174,17 @@ select {
     border: solid 1px #212121;
 }
 
-.container {
-    border: 1px solid #212121;
+#parteTextual {
+    text-align: justify;
+}
+
+#tituloParteTextual {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#textoContratoPAF {
+    font-size: 19px
 }
 
 #ajustes {
