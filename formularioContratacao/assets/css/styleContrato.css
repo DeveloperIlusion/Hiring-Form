@@ -1,0 +1,181 @@
+main {
+    /* background-image: url("../img/LogoUpBackgroundMarcaDagua.png"); */
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: center;
+    background-size: contain;
+}
+
+#cabecalho {
+    display: block;
+    maRGin-left: auto;
+    maRGin-right: auto;
+    width: 50%;
+}
+
+#logoUP {
+    float: left;
+    max-height: 120px;
+    padding-right: 15px;
+}
+
+form {
+    border: none;
+}
+
+.form-check-input:checked {
+    box-shadow: 0 0 6px #0d6efd;
+}
+
+#titulo {
+    background-color: #44546a;
+    color: white;
+    border: 1px solid #212121;
+}
+
+#cabecalhoDependentes {
+    background-color: #f2f2f2;
+    border: 1px solid #212121;
+    font-weight: bold;
+    font-size: small;
+}
+
+.NomeColunaDependentes1 {
+    border-right: 1px solid #212121;
+}
+
+.NomeColunaDependentes2 {
+    border-left: 1px solid #212121;
+}
+
+#multiplaEscolha {
+    border: solid 1px #212121;
+    padding: 0px;
+    padding-left: 12px;
+}
+
+div {
+    background-color: transparent;
+}
+
+.ajustes{
+    border: 1px solid #212121;
+}
+
+#problemaAlinhamento {
+    display: inline-block;
+}
+
+#Estado {
+    display: inline-block;
+    width: min-content;
+    padding-right: 55px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+}
+
+#EstadoCivil {
+    display: inline;
+    width: min-content;
+    padding-right: 93px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#Email {
+    width: max-content;
+    min-width: max-content;
+    padding-right: 20px;
+}
+
+#Vencimento {
+    display: inline-block;
+}
+
+#Valor {
+    width: max-content;
+    max-width: 130px;
+    padding: 0;
+}
+
+#idPlano {
+    display: inline;
+    width: min-content;
+    padding-right: 44%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+select {
+    border: none !important;
+    padding-left: 1px !important;
+    margin-left: 1px !important;
+}
+
+#paragrafo1 {
+    text-align: center;
+    font-size: smaller;
+}
+
+#paragrafo2 {
+    text-align: left;
+    font-size: smaller;
+}
+
+#paragrafo3 {
+    maRGin-bottom: 0px;
+    text-align: center;
+    font-size: smaller;
+}
+
+#paragrafo4 {
+    text-align: left;
+    font-size: smaller;
+}
+
+#paragrafo5 {
+    padding-top: 80px;
+}
+
+#paragrafo6 {
+    padding-left: 20%;
+    padding-top: 80px;
+}
+
+#texto1 {
+    border: solid 1px #212121;
+}
+
+#texto2 {
+    border: solid 1px #212121;
+}
+
+#texto3 {
+    border: solid 1px #212121;
+}
+
+.container {
+    border: 1px solid #212121;
+}
+
+#ajustes {
+    border: 1px solid #212121;
+}
+
+input {
+    border: none;
+    background-color: transparent;
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+label {
+    white-space: nowrap;
+}
+
+footer {
+    background-color: transparent;
+}

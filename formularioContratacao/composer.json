@@ -1,0 +1,27 @@
+{
+    "name": "developerilusion/formulariocontratacao",
+    "description": "Formulário de contratação para uso interno na UP: Assistência Familiar",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Bruno D. S. Cassiano",
+            "email": "brunocassiano.contato@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "Source\\": "source/"
+        },
+        "files": [
+            "source/Config.php"
+        ]
+    },
+    "require": {
+        "coffeecode/datalayer":"^2.0"
+    }
+}

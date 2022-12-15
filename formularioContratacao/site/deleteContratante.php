@@ -32,9 +32,9 @@
             $dataTblDependente->execute([$_POST['FK_Dependente_Contratante']]);
 
             if ($dataTblContratante->rowCount() > 0) {
-                header("Location: lista.php?msgSucesso=Contratante removido do banco de dados com sucesso.");
+                header("Location: ../index.php?msgSucesso=Contratante removido do banco de dados com sucesso.");
             } else {
-                header("Location: lista.php?msgError=Falha na remoção deste contratante, tente novamente ou acione o suporte.");
+                header("Location: ../index.php?msgError=Falha na remoção deste contratante, tente novamente ou acione o suporte.");
             }
 
         } catch (PDOExCEPtion $pe) {
@@ -42,5 +42,5 @@
         }
 
     } else {
-        header("Location: lista.php");
+        header("Location: ../index.php");
     }

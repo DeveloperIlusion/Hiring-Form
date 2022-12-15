@@ -27,4 +27,5 @@ input:focus {
 .form-check-input:checked {
     background-color: rgb(155, 0, 202);
     border-color: rgb(155, 0, 202);
+    box-shadow: 0 0 8px rgb(155, 0, 202);
 }

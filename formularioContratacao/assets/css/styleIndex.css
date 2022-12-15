@@ -1,177 +1,77 @@
-main {
-    /* background-image: url("../img/LogoUpBackgroundMarcaDagua.png"); */
-    background-repeat: no-repeat;
-    background-color: transparent;
-    background-position: center;
-    background-size: contain;
+table {
+    --bs-table-striped-bg: rgb(248, 223, 248) !important;
+  }
+
+.btn-outline-up {
+    --bs-btn-color: rgb(155, 0, 202);
+    --bs-btn-border-color: rgb(155, 0, 202);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: rgb(155, 0, 202);
+    --bs-btn-hover-border-color: rgb(155, 0, 202);
+    --bs-btn-focus-shadow-rgb: 25,135,84;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: rgb(155, 0, 202);
+    --bs-btn-active-border-color: rgb(155, 0, 202);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: rgb(155, 0, 202);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: rgb(155, 0, 202);
+    --bs-gradient: none;
 }
 
-#cabecalho {
-    display: block;
-    maRGin-left: auto;
-    maRGin-right: auto;
-    width: 50%;
+#tituloLista {
+    color: rgb(5, 101, 139);
+    text-decoration: underline rgb(5, 101, 139);
+    text-align: center;
+}
+
+.table-bordered>:not(caption)>*>* {
+    border: 1px solid rgba(4, 80, 110, 0.151);
+}
+
+#tabelaLista {
+    overflow: hidden;
+    color: rgb(4, 80, 110);
+    border-collapse: separate;
+    border-spacing: 0px;
+    border: 1px solid rgb(4, 80, 110);
+    border-radius: 10px;
+    /*--bs-table-striped-color: rgb(4, 80, 110);*/
 }
 
 #logoUP {
-    float: left;
-    max-height: 120px;
-    padding-right: 15px;
+    max-width: 120px;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    align-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
-form {
-    border: none;
-}
-
-#titulo {
-    background-color: #44546a;
-    color: white;
-    border: 1px solid #212121;
-}
-
-#cabecalhoDependentes {
-    background-color: #f2f2f2;
-    border: 1px solid #212121;
-    font-weight: bold;
-    font-size: small;
-}
-
-.NomeColunaDependentes1 {
-    border-right: 1px solid #212121;
-}
-
-.NomeColunaDependentes2 {
-    border-left: 1px solid #212121;
-}
-
-#multiplaEscolha {
-    border: solid 1px #212121;
-    padding: 0px;
-    padding-left: 12px;
-}
-
-div {
-    background-color: transparent;
-}
-
-.ajustes{
-    border: 1px solid #212121;
-}
-
-#problemaAlinhamento {
-    display: inline-block;
-}
-
-#Estado {
-    display: inline-block;
-    width: min-content;
-    padding-right: 55px;
-    padding-top: 0px;
+#Filtro {
+    padding-top: 15px;
     padding-bottom: 0px;
-    margin: 0px;
+    margin-bottom: 0px;
 }
 
-#EstadoCivil {
-    display: inline;
-    width: min-content;
-    padding-right: 93px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+#divInputFiltrar {
+    text-align: right;
+    padding-right: 0px;
+    margin-right: 0px;
 }
 
-#Email {
-    width: max-content;
-    min-width: max-content;
-    padding-right: 20px;
+#inputFiltrar {
+    border-color:rgb(155, 0, 202);
 }
 
-#Vencimento {
-    display: inline-block;
-}
-
-#Valor {
-    width: max-content;
-    max-width: 130px;
-    padding: 0;
-}
-
-#idPlano {
-    display: inline;
-    width: min-content;
-    padding-right: 44%;
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
-
-select {
-    border: none !important;
-    padding-left: 1px !important;
-    margin-left: 1px !important;
-}
-
-#paragrafo1 {
-    text-align: center;
-    font-size: smaller;
-}
-
-#paragrafo2 {
-    text-align: left;
-    font-size: smaller;
-}
-
-#paragrafo3 {
-    maRGin-bottom: 0px;
-    text-align: center;
-    font-size: smaller;
-}
-
-#paragrafo4 {
-    text-align: left;
-    font-size: smaller;
-}
-
-#paragrafo5 {
-    padding-top: 80px;
-}
-
-#paragrafo6 {
-    padding-left: 20%;
-    padding-top: 80px;
-}
-
-#texto1 {
-    border: solid 1px #212121;
-}
-
-#texto2 {
-    border: solid 1px #212121;
-}
-
-#texto3 {
-    border: solid 1px #212121;
-}
-
-.container {
-    border: 1px solid #212121;
-}
-
-#ajustes {
-    border: 1px solid #212121;
-}
-
-input {
-    border: none;
-    background-color: transparent;
+#botaoFiltrar {
+    text-align: right;
+    padding-left: 0px;
+    margin-left: 0px;
 }
 
 input:focus {
-    outline-width: 0;
-}
-
-label {
-    white-space: nowrap;
-}
-
-footer {
-    background-color: transparent;
+    box-shadow: 0 0 10px rgb(155, 0, 202) !important;
 }

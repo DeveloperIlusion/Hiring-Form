@@ -80,9 +80,9 @@
         };
 
             if ($conn->lastInsertId() > 0) {
-                header("Location: lista.php?msgSucesso=Contratante cadastrado com sucesso.");
+                header("Location: ../index.php?msgSucesso=Contratante cadastrado com sucesso.");
             } else {
-                header("Location: lista.php?msgError=Falha no cadastro do contratante.");
+                header("Location: ../index.php?msgError=Falha no cadastro do contratante.");
             }
 
         } catch (PDOExCEPtion $pe) {
@@ -97,9 +97,9 @@
                 $RGDuplicado=mysqli_query($conn,"select * from contratante where RG='$RG'");
 
             if (mysqli_num_rows($CPFDuplicado)>0) {
-                header("Location: lista.php?msgError=Este CPF já foi cadastrado.");
+                header("Location: ../index.php?msgError=Este CPF já foi cadastrado.");
             } elseif (mysqli_num_rows($RGDuplicado)>0) {
-                header("Location: lista.php?msgError=Este RG já foi cadastrado.");
+                header("Location: ../index.php?msgError=Este RG já foi cadastrado.");
             }
         }
 

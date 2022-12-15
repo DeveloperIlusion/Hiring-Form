@@ -98,9 +98,9 @@
             }
 
             if ($dataTblContratante or $dataTblEndereco or $dataTblPlanoContratado or $dataTblDependente->rowCount() > 0) {
-                header("Location: lista.php?msgSucesso=Dados do contratante alterados com sucesso.");
+                header("Location: ../index.php?msgSucesso=Dados do contratante alterados com sucesso.");
             } else {
-                header("Location: lista.php?msgError=Falha na alteração dos dados do contratante.");
+                header("Location: ../index.php?msgError=Falha na alteração dos dados do contratante.");
             }
 
         } catch (PDOExCEPtion $pe) {
@@ -108,5 +108,5 @@
         }
 
     } else {
-       header("Location: lista.php");
+       header("Location: ../index.php");
     }
