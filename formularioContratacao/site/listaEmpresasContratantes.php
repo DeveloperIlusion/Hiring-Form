@@ -38,7 +38,7 @@
             <form action="" method="GET" value="" id="formFiltro">
                 <div  class="row" id="Filtro">
                     <div class="col-5" id="botoesTopoPagina-formFiltro">
-                        <a href="formEmpresasContratantes.php" class="btn btn-outline-up" title="Cadastrar contratante" id="botaoCadastrar">Cadastrar</a>
+                        <a href="formEmpresasContratantes.php?acao=insert" class="btn btn-outline-up" title="Cadastrar contratante" id="botaoCadastrar">Cadastrar</a>
                         <a href="../index.php" class="btn btn-outline-up" title="Lista de Contratantes" id="botaoListaContratantes">Lista de Contratantes</a>
                     </div>
                     
@@ -143,8 +143,8 @@
                                 <td><?= $count->Telefone ?></td>
                                 <td>
                                     <a href="contratoEmpresas.php" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
-                                    <a href="formEmpresasContratantes.php" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
-                                    <a href="formEmpresasContratantes.php" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
+                                    <a href="formEmpresasContratantes.php?acao=update&idContratante=<?= $count->idContratante ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
+                                    <a href="formEmpresasContratantes.php?acao=delete&idContratante=<?= $count->idContratante ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
                                 </td>
                             </tr>
                         <?php
