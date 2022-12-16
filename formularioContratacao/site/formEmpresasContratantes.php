@@ -240,9 +240,11 @@
                     </div>
                 </div>
                                
-                <input type="hidden" name="idContratante" id="idContratante" value="<?= $dataTblContratante['idContratante'] ?>">
+                <input type="hidden" name="idContratante" id="idContratante">
 
-                    <div class="col-auto container">
+                <div class="mt-3">
+
+                    <div class="col-auto">
                         <a href="listaEmpresasContratantes.php" class="btn btn-outline-secondary btn-sm mb-3">Voltar</a>
                         
                         <?php
