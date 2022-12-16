@@ -4,7 +4,7 @@
 
     use CoffeeCode\DataLayer\DataLayer;
 
-    class Endereco extends DataLayer{
+    class Address extends DataLayer{
         public function __construct()
         {
             parent:: __construct ("endereco", 
@@ -12,10 +12,11 @@
             "idEndereco", false);
         }
 
-        public function add(string $endereco, string $numero, string $bairro, int $estado ,string $cep, Contractor $contractor): Endereco 
+        public function add(string $endereco, string $numero, string $bairro, string $cidade, int $estado ,string $cep, Contractor $contractor): Address 
         {
             $this->Endereco = $endereco;
             $this->Numero = $numero;
+            $this->Cidade = $cidade;
             $this->Bairro = $bairro;
             $this->Estado = $estado;
             $this->CEP = $cep;

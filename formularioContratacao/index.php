@@ -14,12 +14,7 @@
     use Source\Models\Contractor;
 
     $contractor = new Contractor();
-    $list = $contractor->find()->fetch(true);
-
-    /** @var $contractorItem Contractor 
-    foreach ($list as $contractorItem){
-        
-    }*/
+    $list = $contractor->findById($_GET["idContratante"])->fetch(true);
 ?>
 
 <!DOCTYPE html>
@@ -40,30 +35,29 @@
     </head>
     <body>
         <div class="container"> 
-            
+            <br/>
             <h2 id="tituloLista">__Lista de Contratantes__</h2>
             
             <img src="assets/img/Logo Up Assistência Cor.png" id="logoUP" type="image/png">
 
             <form action="" method="GET" value="" id="formFiltro">
                 <div  class="row" id="Filtro">
-                    <div class="col-2" id="pBotaoCadastrar">
+                    <div class="col-5" id="botoesTopoPagina-formFiltro">
                         <a href="site/form.php?acao=insert" class="btn btn-outline-up" title="Cadastrar contratante" id="botaoCadastrar">Cadastrar</a>
+                        <a href="site/listaEmpresasContratantes.php" class="btn btn-outline-up" title="Lista de Empresas Contratantes" id="botaoListaEmpresasContratantes">Lista de Empresas Contratantes</a>
                     </div>
-                    <div class="col-6">
 
+                    <div class="col-3">
                     </div>
-                    <div class="col-3" id="divInputFiltrar">
+
+                    <div class="col-4" id="divInput">
                         <input class="form-control" id="inputFiltrar" type="text" name="k" value="<?php echo isset($_GET['k']) ? $_GET['k'] : ''; ?>" placeholder="Digite o nome que deseja filtrar" autocomplete="off">
-                    </div>
-                    <div class="col-1" id="botaoFiltrar" >
-                        <input class="btn btn-outline-up" type="submit" name="" value="Filtrar">
+
+                        <input id="botaoFiltrar" class="btn btn-outline-up" type="submit" name="" value="Filtrar">
                     </div>
                 </div>
             </form>
-
-            <br>
-
+            
             <?php
                 if (isset($_GET['msgSucesso'])) {
                     ?>
@@ -95,9 +89,7 @@
                 </thead>
 
                 <tbody>
-                    <?php
-                    try {        
-
+                    <?php   
                         if (isset($_GET['k']) && $_GET['k']) {
 
                             $k = trim($_GET['k']);
@@ -116,54 +108,54 @@
                             $query = $conn->prepare($search_string);
                             $query -> execute();
                             
-                            $receber = $query-> fetchAll();
+                            $filteredNames = $query-> fetchAll();
 
                             $result_count = $query -> fetchColumn();
 
 
-                                if (!empty($receber) && is_array($receber)) {
+                                if (!empty($filteredNames) && is_array($filteredNames)) {
 
-                                    foreach ($receber as $row){
+                                    foreach ($filteredNames as $count){
                                     ?>
                                         <tr>
-                                            <td><?= $row->Nome ?></td>
-                                            <td><?= $row->RG ?></td>
-                                            <td><?= $row->CPF ?></td>
-                                            <td><?= $row->Celular ?></td>
-                                            <td><?= $row->Telefone ?></td>
-                                            <td><a href="site/contrato.php?idContratante=<?= $row->idContratante ?>" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
-                                            <a href="site/form.php?acao=update&idContratante=<?= $row->idContratante ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
-                                            <a href="site/form.php?acao=delete&idContratante=<?= $row->idContratante ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
+                                            <td><?= $count->Nome ?></td>
+                                            <td><?= $count->RG ?></td>
+                                            <td><?= $count->CPF ?></td>
+                                            <td><?= $count->Celular ?></td>
+                                            <td><?= $count->Telefone ?></td>
+                                            <td><a href="site/contrato.php?idContratante=<?= $count->idContratante ?>" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
+                                            <a href="site/form.php?acao=update&idContratante=<?= $count->idContratante ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
+                                            <a href="site/form.php?acao=delete&idContratante=<?= $count->idContratante ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
                                             </td>
                                         </tr>
                                     <?php
                                     }
                                 } else {
-                                    header("Location: index.php?msgError=Nenhum registro compatível, tente fazer outra pesquisa.");
+                                    ?>
+                                        <div class="alert alert-danger" role="alert">
+                                            Nenhum registro compatível, tente fazer outra pesquisa.
+                                        </div>
+                                    <?php
                                 }
                         
                         } else {
-                            foreach ($list as $value) {
-                                ?>
+                            foreach ($list as $count) {
+                            ?>
                                 <tr>
-                                    <td><?= $value->Nome ?></td>
-                                    <td><?= $value->CPF ?></td>
-                                    <td><?= $value->RG ?></td>
-                                    <td><?= $value->Celular ?></td>
-                                    <td><?= $value->Telefone ?></td>
+                                    <td><?= $count->Nome ?></td>
+                                    <td><?= $count->CPF ?></td>
+                                    <td><?= $count->RG ?></td>
+                                    <td><?= $count->Celular ?></td>
+                                    <td><?= $count->Telefone ?></td>
                                     <td>
-                                        <a href="site/contrato.php?idContratante=<?= $value->idContratante ?>" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
-                                        <a href="site/form.php?acao=update&idContratante=<?= $value->idContratante ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
-                                        <a href="site/form.php?acao=delete&idContratante=<?= $value->idContratante ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
+                                        <a href="site/contrato.php?idContratante=<?= $count->idContratante ?>" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
+                                        <a href="site/form.php?acao=update&idContratante=<?= $count->idContratante ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
+                                        <a href="site/form.php?acao=delete&idContratante=<?= $count->idContratante ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
                                     </td>
                                 </tr>
-                                <?php
+                            <?php
                             }
                         }
-                  
-                    } catch (PDOExCEPtion $pe) {
-                        echo "ERROR: " . $pe->getMessage();
-                    }
                     ?>
                 </tbody>
             </table>

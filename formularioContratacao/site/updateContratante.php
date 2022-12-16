@@ -8,7 +8,7 @@
                 ""
             );
 
-            $idContratante -> idContratante;
+            $idContratante = $_POST['idContratante'];
             
             $dadosContratante = [
                 $_POST['Nome'],
@@ -67,13 +67,13 @@
             $dataTblEndereco = $conn->prepare("UPDATE endereco 
                                     SET Endereco = ?,  Numero = ?, Bairro = ?, 
                                     Cidade = ?, Estado = ?, CEP = ?
-                                    WHERE idContratante = ?");
+                                    WHERE FK_Endereco_Contratante = ?");
             
             $dataTblEndereco->execute($dadosEndereco);
            
             $dataTblPlanoContratado = $conn->prepare("UPDATE planocontratado 
                                     SET  MetodoCobranca = ?, Valor = ?, Vencimento = ?
-                                    WHERE idContratante = ?");
+                                    WHERE FK_PlanoContratado_Contratante = ?");
             
             $dataTblPlanoContratado->execute($dadosPlanoContratado);
 

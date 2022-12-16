@@ -51,27 +51,41 @@ table {
 }
 
 #Filtro {
-    padding-top: 15px;
+    margin-top: 30px;
     padding-bottom: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
 }
 
-#divInputFiltrar {
+#divInput {
+    max-width: auto;
     text-align: right;
     padding-right: 0px;
+    padding-bottom: 0px;
     margin-right: 0px;
+    margin-bottom: 0px;
+    display: inline-flex;
 }
 
 #inputFiltrar {
     border-color:rgb(155, 0, 202);
+    margin-right: 0px;
+    margin-bottom: 0px;
 }
 
 #botaoFiltrar {
     text-align: right;
-    padding-left: 0px;
-    margin-left: 0px;
+    margin-left: 5px;
+    margin-bottom: 0px;
+    margin-right: 12px;
 }
 
 input:focus {
     box-shadow: 0 0 10px rgb(155, 0, 202) !important;
+}
+
+#botoesTopoPagina-formFiltro {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    padding-left: 12px;
 }

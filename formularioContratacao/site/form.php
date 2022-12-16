@@ -11,54 +11,6 @@
         "delete" => "Excluir"
     ];
 
-    $dataTblContratante = [
-        "idContratante" => 0,
-        "Nome" => "",
-        "CPF" => "",
-        "RG" => "",
-        "DataNascimento" => "",
-        "Sexo" => "",
-        "EstadoCivil" => 0,
-        "Email" => "",
-        "Profissao" => "",
-        "Celular" => "",
-        "Telefone" => ""
-    ];
-
-    $dataTblEndereco = [
-        "idEndereco" => 0,
-        "Endereco" => "",
-        "Numero" => "",
-        "Bairro" => "",
-        "Cidade" => "",
-        "Estado" => "",
-        "CEP" => "",
-        "FK_Endereco_Contratante" => 0
-    ];
-
-    $dataTblPlano = [
-        "idPlano" => 0,
-        "Plano" => ""
-    ];
-
-    $dataTblPlanoContratado = [
-        "idPlanoContratado" => 0,
-        "PlanoContratado" => 0,
-        "MetodoCobranca" => 0,
-        "Valor" => 0,
-        "Vencimento" => "",
-        "FK_PlanoContratado_Contratante" => 0
-    ];
-
-    $dataTblDependente = [
-        "idDependente" => 0,
-        "NomeDependente" => "",
-        "DataNascimentoDependente" => "",
-        "GrauParentesco" => "",
-        "CPFDependente" => "",
-        "FK_Dependente_Contratante" => 0
-    ];
-
     if ($_GET['acao'] != "insert") {
 
         try {        
@@ -124,7 +76,7 @@
 
             <h2 id="tituloInicio">__Formulário de Contratante - <?= $subMenu[$_GET['acao']] ?>__</h2>
 
-            <form method="POST" action="<?= $_GET['acao'] ?>Contratante.php">
+            <form method="POST" action="../<?= $_GET['acao'] ?>Contratante.php">
 
                 <div class="row">
                     <div class="col-12">
@@ -423,7 +375,7 @@
                         ?>
                         </div>
                 
-                <input type="hidden" name="idContratante" id="idContratante" value="<?= $dataTblContratante['idContratante'] ?>">
+                <input type="hidden" name="idContratante" id="idContratante" value="<?= $_GET["idContratante"] ?>">
                
                 <div class="mt-3">
 

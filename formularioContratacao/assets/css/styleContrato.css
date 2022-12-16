@@ -184,7 +184,7 @@ select {
 }
 
 #textoContratoPAF {
-    font-size: 19px
+    font-size: 19px;
 }
 
 #ajustes {
@@ -206,4 +206,9 @@ label {
 
 footer {
     background-color: transparent;
+}
+
+#rodapeDaPagina {
+    font-size: 19px;
+    text-align: right !important;
 }

@@ -146,7 +146,7 @@
                         </div>
                         <div class="col-6" id="ajustes">
                             <label for="Email">E-mail:
-                                <input type="Email" id="Email" name="Email" size="76%" maxlength="255">
+                                <input type="Email" id="Email" name="Email" size="61%" maxlength="255">
                             </label>
                         </div>
                     </div>
@@ -166,12 +166,12 @@
                     <div class="row">
                         <div class="col-6" id="ajustes">
                             <label for="PISorNIT">PIS/NIT:
-                                <input type="text" id="PISorNIT" name="PISorNIT" size="130%" maxlength="255">
+                                <input type="text" id="PISorNIT" name="PISorNIT" size="70%" maxlength="255">
                             </label>
                         </div>
                         <div class="col-6" id="ajustes">
                             <label for="CPF">CPF:
-                                <input type="text" id="CPF" name="CPF" size="130%" maxlength="255">
+                                <input type="text" id="CPF" name="CPF" size="66%" maxlength="255">
                             </label>
                         </div>
                     </div>
@@ -194,27 +194,35 @@
                             características do plano abaixo descriminado.
                         </p>
                         <h5 id="tituloParteTextual">CLÁUSULA II: DOS SERVIÇOS DE ASSISTÊNCIA</h5>
-                            <p id="textoContratoPAF">
-                                1. O serviço de assistência se dará pelas redes credenciadas, que têm por objeto
-                                exclusivo o oferecimento de profissionais credenciados médicos, dentistas, psicólogos,
-                                fisioterapeutas e rede de comércio como farmácias, laboratórios e clínicas pela CONTRATADA
-                                aos empregados da CONTRATANTE, em toda a área de cobertura do plano assistencial,
-                                conforme discriminada em “rede credenciada” no site <a href="https://upassistencial.com.br" >www.upassistencial.com.br</a>, a qual garantirá
-                                descontos aos empregadosda CONTRATANTE e seus dependentes.<br>
-                                2. NÃO SE TRATA DE MODALIDADE DE PLANO DE SAÚDE, mas de serviço de
-                                operacionalização de descontos e benefícios pela CONTRATADA aos empregados da
-                                CONTRATANTE, bem como seus dependentes.<br>
-                                3. Os serviços descritos serão autorizados e prestados pela CONTRATADA, ou por empresa por
-                                ela credenciada, não se responsabilizando a CONTRATADA por serviços executados sem
-                                autorização,ou por terceiros não credenciados.
-                            </p>
+                        <p id="textoContratoPAF">
+                            1. O serviço de assistência se dará pelas redes credenciadas, que têm por objeto
+                            exclusivo o oferecimento de profissionais credenciados médicos, dentistas, psicólogos,
+                            fisioterapeutas e rede de comércio como farmácias, laboratórios e clínicas pela CONTRATADA
+                            aos empregados da CONTRATANTE, em toda a área de cobertura do plano assistencial,
+                            conforme discriminada em “rede credenciada” no site <a href="https://upassistencial.com.br" >www.upassistencial.com.br</a>, a qual garantirá
+                            descontos aos empregadosda CONTRATANTE e seus dependentes.<br>
+                            2. NÃO SE TRATA DE MODALIDADE DE PLANO DE SAÚDE, mas de serviço de
+                            operacionalização de descontos e benefícios pela CONTRATADA aos empregados da
+                            CONTRATANTE, bem como seus dependentes.<br>
+                            3. Os serviços descritos serão autorizados e prestados pela CONTRATADA, ou por empresa por
+                            ela credenciada, não se responsabilizando a CONTRATADA por serviços executados sem
+                            autorização,ou por terceiros não credenciados.
+                        </p>
                         <h5 id="tituloParteTextual">CLÁUSULA III: DO SERVIÇO FUNERAL</h5>
-                            <p id="textoContratoPAF">
-                                4. A CONTRATADA se compromete a executar a prestação de serviço funeral padrão aos
-                                empregados do CONTRATANTE e seus dependentes inscritos neste contrato após o prazo de
-                                carência de 60 dias.<br>
-                                5. No caso de falecimento de algum empregado da CONTRATANTE, ou de seus dependentes
-                            </p>
+                        <p id="textoContratoPAF">
+                            4. A CONTRATADA se compromete a executar a prestação de serviço funeral padrão aos
+                            empregados do CONTRATANTE e seus dependentes inscritos neste contrato após o prazo de
+                            carência de 60 dias.<br>
+                            5. No caso de falecimento de algum empregado da CONTRATANTE, ou de seus dependentes
+                        </p>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <p id="rodapeDaPagina">
+                            <b>1</b>
+                            <br>
+                            _____________________________________________
+                        </p>
                     </div>
                 </div>
             </form>

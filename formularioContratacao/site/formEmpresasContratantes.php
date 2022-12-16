@@ -428,7 +428,7 @@
                 <div class="mt-3">
 
                     <div class="col-auto container">
-                        <a href="../index.php" class="btn btn-outline-secondary btn-sm mb-3">Voltar</a>
+                        <a href="listaEmpresasContratantes.php" class="btn btn-outline-secondary btn-sm mb-3">Voltar</a>
                         
                         <?php
                         if ($_GET['acao'] != "view") {
