@@ -14,7 +14,12 @@
     use Source\Models\Contractor;
 
     $contractor = new Contractor();
-    $list = $contractor->findById($_GET["idContratante"])->fetch(true);
+    $list = $contractor->find()->fetch(true);
+
+    /** @var $contractorItem Contractor 
+    foreach ($list as $contractorItem){
+        
+    }*/
 ?>
 
 <!DOCTYPE html>
