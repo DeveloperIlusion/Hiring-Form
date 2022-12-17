@@ -16,10 +16,8 @@
     $contractor = new Contractor();
     $list = $contractor->find()->fetch(true);
 
-    /** @var $contractorItem Contractor 
-    foreach ($list as $contractorItem){
-        
-    }*/
+    foreach ($list as $contractorItem){   
+    }
 ?>
 
 <!DOCTYPE html>
@@ -128,9 +126,9 @@
                                             <td><?= $count->CPF ?></td>
                                             <td><?= $count->Celular ?></td>
                                             <td><?= $count->Telefone ?></td>
-                                            <td><a href="site/contrato.php?idContratante=<?= $count->idContratante ?>" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
-                                            <a href="site/form.php?acao=update&idContratante=<?= $count->idContratante ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
-                                            <a href="site/form.php?acao=delete&idContratante=<?= $count->idContratante ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
+                                            <td><a href="site/contrato.php?idContratante=<? $count-> idContratante ?>" class="btn btn-outline-primary" title="Redirecionamento para página do contrato">Contrato</a>
+                                            <a href="site/form.php?acao=update&idContratante=<? $count-> idContratante ?>" class="btn btn-outline-warning" title="Alteração dos dados do registro">Alterar</a>
+                                            <a href="site/form.php?acao=delete&idContratante=<? $count-> idContratante ?>" class="btn btn-outline-danger" title="Exclusão do registro">Excluir</a>
                                             </td>
                                         </tr>
                                     <?php

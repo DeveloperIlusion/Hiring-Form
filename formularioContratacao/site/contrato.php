@@ -208,33 +208,33 @@
                             <label for="Estado">Estado:
                                 <select name="Estado" id="Estado" class="form-control selectpicker selectuf" data-style="btn btn-link" required="">
                                     <option value="" disabled="" selected=""></option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "1" ? "selected" : "") ?> value="1">Acre</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "2" ? "selected" : "") ?> value="2">Alagoas</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "3" ? "selected" : "") ?> value="3">Amapá</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "4" ? "selected" : "") ?> value="4">Amazonas</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "5" ? "selected" : "") ?> value="5">Bahia</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "6" ? "selected" : "") ?> value="6">Ceará</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "7" ? "selected" : "") ?> value="7">Distrito Federal</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "8" ? "selected" : "") ?> value="8">Espírito Santo</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "9" ? "selected" : "") ?> value="9">Goiás</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "10" ? "selected" : "") ?> value="10">Maranhão</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "11" ? "selected" : "") ?> value="11">Mato Grosso</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "12" ? "selected" : "") ?> value="12">Mato Grosso do Sul</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "13" ? "selected" : "") ?> value="13">Minas Gerais</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "14" ? "selected" : "") ?> value="14">Pará</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "15" ? "selected" : "") ?> value="15">Paraíba</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "16" ? "selected" : "") ?> value="16">Paraná</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "17" ? "selected" : "") ?> value="17">Pernambuco</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "18" ? "selected" : "") ?> value="18">Piauí</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "19" ? "selected" : "") ?> value="19">Rio de Janeiro</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "20" ? "selected" : "") ?> value="20">Rio Grande do Norte</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "21" ? "selected" : "") ?> value="21">Rio Grande do Sul</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "22" ? "selected" : "") ?> value="22">Rondônia</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "23" ? "selected" : "") ?> value="23">Roraima</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "24" ? "selected" : "") ?> value="24">Santa Catarina</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "25" ? "selected" : "") ?> value="25">São Paulo</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "26" ? "selected" : "") ?> value="26">SeRGipe</option>
-                                    <option <?= ($dataTblEndereco['Estado'] == "27" ? "selected" : "") ?> value="27">Tocantins</option>
+                                    <option <?= ($contractor -> Estado == "1" ? "selected" : "") ?> value="1">Acre</option>
+                                    <option <?= ($contractor -> Estado == "2" ? "selected" : "") ?> value="2">Alagoas</option>
+                                    <option <?= ($contractor -> Estado == "3" ? "selected" : "") ?> value="3">Amapá</option>
+                                    <option <?= ($contractor -> Estado == "4" ? "selected" : "") ?> value="4">Amazonas</option>
+                                    <option <?= ($contractor -> Estado == "5" ? "selected" : "") ?> value="5">Bahia</option>
+                                    <option <?= ($contractor -> Estado == "6" ? "selected" : "") ?> value="6">Ceará</option>
+                                    <option <?= ($contractor -> Estado == "7" ? "selected" : "") ?> value="7">Distrito Federal</option>
+                                    <option <?= ($contractor -> Estado == "8" ? "selected" : "") ?> value="8">Espírito Santo</option>
+                                    <option <?= ($contractor -> Estado == "9" ? "selected" : "") ?> value="9">Goiás</option>
+                                    <option <?= ($contractor -> Estado == "10" ? "selected" : "") ?> value="10">Maranhão</option>
+                                    <option <?= ($contractor -> Estado == "11" ? "selected" : "") ?> value="11">Mato Grosso</option>
+                                    <option <?= ($contractor -> Estado == "12" ? "selected" : "") ?> value="12">Mato Grosso do Sul</option>
+                                    <option <?= ($contractor -> Estado == "13" ? "selected" : "") ?> value="13">Minas Gerais</option>
+                                    <option <?= ($contractor -> Estado == "14" ? "selected" : "") ?> value="14">Pará</option>
+                                    <option <?= ($contractor -> Estado == "15" ? "selected" : "") ?> value="15">Paraíba</option>
+                                    <option <?= ($contractor -> Estado == "16" ? "selected" : "") ?> value="16">Paraná</option>
+                                    <option <?= ($contractor -> Estado == "17" ? "selected" : "") ?> value="17">Pernambuco</option>
+                                    <option <?= ($contractor -> Estado == "18" ? "selected" : "") ?> value="18">Piauí</option>
+                                    <option <?= ($contractor -> Estado == "19" ? "selected" : "") ?> value="19">Rio de Janeiro</option>
+                                    <option <?= ($contractor -> Estado == "20" ? "selected" : "") ?> value="20">Rio Grande do Norte</option>
+                                    <option <?= ($contractor -> Estado == "21" ? "selected" : "") ?> value="21">Rio Grande do Sul</option>
+                                    <option <?= ($contractor -> Estado == "22" ? "selected" : "") ?> value="22">Rondônia</option>
+                                    <option <?= ($contractor -> Estado == "23" ? "selected" : "") ?> value="23">Roraima</option>
+                                    <option <?= ($contractor -> Estado == "24" ? "selected" : "") ?> value="24">Santa Catarina</option>
+                                    <option <?= ($contractor -> Estado == "25" ? "selected" : "") ?> value="25">São Paulo</option>
+                                    <option <?= ($contractor -> Estado == "26" ? "selected" : "") ?> value="26">SeRGipe</option>
+                                    <option <?= ($contractor -> Estado == "27" ? "selected" : "") ?> value="27">Tocantins</option>
                                 </select>
                             </label>
                         </div>
