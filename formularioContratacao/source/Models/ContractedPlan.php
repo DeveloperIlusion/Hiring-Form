@@ -23,4 +23,16 @@
 
             return $this;
         }
+
+        public function getPlan(): ContractedPlan 
+        {
+            $this->Plan = (new Plan())->findById($this->idPlano)->data();
+            return $this;
+        }
+
+        public function getContractor(): ContractedPlan 
+        {
+            $this->Contractor = (new Contractor())->findById($this->idContratante)->data();
+            return $this;
+        }
     }

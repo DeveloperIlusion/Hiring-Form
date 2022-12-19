@@ -23,4 +23,10 @@
 
             return $this;
         }
+
+        public function getContractor(): Dependent 
+        {
+            $this->Contractor = (new Contractor())->findById($this->idContratante)->data();
+            return $this;
+        }
     } 

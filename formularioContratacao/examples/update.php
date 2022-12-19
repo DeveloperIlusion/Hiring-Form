@@ -5,28 +5,59 @@
     use Source\Models\Contractor;
 
     $contractor = (new Contractor())->findById($_POST['idContratante']);
-    $contractor-> Nome =  $_POST['Nome'];
-    $contractor-> CPF = $_POST['CPF'];
-    $contractor-> RG = $_POST['RG'];
-    $contractor-> DataNascimento = $_POST['DataNascimento'];
-    $contractor-> Sexo = $_POST['Sexo'];
-    $contractor-> Celular = $_POST['Celular'];
-    $contractor-> Telefone = $_POST['Telefone'];
-    $contractor-> EstadoCivil = $_POST['EstadoCivil'];
+    if ($contractor->save()) 
+    {
+        $contractor-> data();
+    }
    
-    /* use Source\Models\Address;
+    use Source\Models\Address;
 
-    $address = new Address();
-    $address->update(
-        [$address-> $_POST['Endereco'], 
-        $address-> $_POST['Numero'],
-        $address-> $_POST['Bairro'],
-        $address-> $_POST['Cidade'], 
-        $address-> $_POST['Estado'], 
-        $address-> $_POST['CEP']],
-        
-    ); */
+    $address = new Address;
+    $address -> FK_Endereco_Contratante = $contractor -> idContratante;
+    if ($address->save()) 
+    {   
+        $address-> data();
+        $address->getContractor()->data();
+    }
+
+    use Source\Models\ContractedPlan;
+
+    $contractedPlan = new ContractedPlan;
+    $contractedPlan -> FK_PlanoContratado_Contratante = $contractor -> idContratante;
+    if ($contractedPlan->save()) 
+    {
+        $contractedPlan-> data();
+        $contractedPlan->getContractor()->data();
+    }
+
+    use Source\Models\Dependent;
+
+    $dependent = new Dependent;
+    $dependent -> FK_Dependente_Contratante = $contractor -> idContratante;
+    if ($dependent->save()) 
+    {
+        $dependent-> data();
+        $dependent->getContractor()->data();
+    }
 
     $contractor-> save();
-    $address-> save();
 
+    use Source\Models\Plan;
+
+    $plan = (new Plan())->find()->fetch(false);
+    if ($plan->save())
+    {
+        $plan-> data();
+    }
+
+    $contractedPlan = new ContractedPlan;
+    $contractedPlan -> PlanoContratado = $plan -> idPlano;
+    if ($contractedPlan->save()) 
+    {
+        $contractedPlan-> data();
+        $contractedPlan->getPlan()->data();
+    }
+
+    $plan-> save();
+
+   

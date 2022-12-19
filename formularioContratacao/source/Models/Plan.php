@@ -11,10 +11,10 @@
             parent:: __construct("plano", ["Plano"], "idPlano", false);
         }
 
-        public function contractedPlan()
+        public function contractedPlans()
         {
-            return (new ContractedPlan())->find("PlanoContratado = :planID",
-            "planID={$this->idPlano}")->fetch(true);
+            return (new ContractedPlan())->find("PlanoContratado = :planId",
+            "planId={$this->idPlano}")->fetch(true);
         }
         
     }

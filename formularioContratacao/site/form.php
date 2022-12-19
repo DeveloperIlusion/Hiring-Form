@@ -10,33 +10,10 @@
         "update" => "Alterar",
         "delete" => "Excluir"
     ];
-
+    
     require __DIR__ . "/../vendor/autoload.php";
-
-    use CoffeeCode\DataLayer\Connect;
-    use Source\Models\Contractor;
-    use Source\Models\Address;
-
-    $conn = Connect::getInstance();
-    $error = Connect::getError();
-
-    if ($error){
-        echo $error->getMessage();
-        die();
-    }
-
-    if ($_GET['acao'] == "insert") {
-       $contractor = new Contractor();
-    } else {
-        $contractor = (new Contractor())->findById($_GET['idContratante']);
-        $address = (new Address())->find("FK_Endereco_Contratante", $_GET['idContratante'], "*");
-        print_r($address);
-
-        foreach ($address as $row){
-            print_r($row);
-        }
-    }
-?>
+    require __DIR__ . "/../examples/retrieve.php";
+;?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -56,9 +33,9 @@
     <body>
         <div class="container">
 
-            <h2 id="tituloInicio">__Formulário de Contratante - <?= $subMenu[$_GET['acao']] ?>__</h2>
+            <h2 id="tituloInicio">__Formulário de Contratante - <?= $subMenu[$_GET['acao']] ;?>__</h2>
 
-            <form method="POST" action="<?= $_GET['acao'] ?>Contratante.php">
+            <form method="POST" action="../examples/<?= $_GET['acao'] ;?>.php">
 
                 <div class="row">
                     <div class="col-12">
@@ -92,7 +69,7 @@
                 <div class="row">
                     <div class="col-7">
                         <label for="Endereco" class="form-label">Endereço</label>
-                        <input type="text" class="form-control" maxlength="100" name="Endereco"  id="Endereco" value="<?= $row -> Endereco ?>" required>
+                        <input type="text" class="form-control" maxlength="100" name="Endereco"  id="Endereco" value="<?= $address -> Endereco ?>" required>
                     </div>
 
                     <div class="col-2">
@@ -147,33 +124,33 @@
                         <label for="Estado" class="form-label">Estado</label>
                             <select name="Estado" id="Estado" class="form-control selectpicker" data-style="btn btn-link" required="">
                             <option value="" disabled="" selected=""></option>
-                            <option <?= ($contractor -> Estado == "1" ? "selected" : "") ?> value="1">Acre</option>
-                            <option <?= ($contractor -> Estado == "2" ? "selected" : "") ?> value="2">Alagoas</option>
-                            <option <?= ($contractor -> Estado == "3" ? "selected" : "") ?> value="3">Amapá</option>
-                            <option <?= ($contractor -> Estado == "4" ? "selected" : "") ?> value="4">Amazonas</option>
-                            <option <?= ($contractor -> Estado == "5" ? "selected" : "") ?> value="5">Bahia</option>
-                            <option <?= ($contractor -> Estado == "6" ? "selected" : "") ?> value="6">Ceará</option>
-                            <option <?= ($contractor -> Estado == "7" ? "selected" : "") ?> value="7">Distrito Federal</option>
-                            <option <?= ($contractor -> Estado == "8" ? "selected" : "") ?> value="8">Espírito Santo</option>
-                            <option <?= ($contractor -> Estado == "9" ? "selected" : "") ?> value="9">Goiás</option>
-                            <option <?= ($contractor -> Estado == "10" ? "selected" : "") ?> value="10">Maranhão</option>
-                            <option <?= ($contractor -> Estado == "11" ? "selected" : "") ?> value="11">Mato Grosso</option>
-                            <option <?= ($contractor -> Estado == "12" ? "selected" : "") ?> value="12">Mato Grosso do Sul</option>
-                            <option <?= ($contractor -> Estado == "13" ? "selected" : "") ?> value="13">Minas Gerais</option>
-                            <option <?= ($contractor -> Estado == "14" ? "selected" : "") ?> value="14">Pará</option>
-                            <option <?= ($contractor -> Estado == "15" ? "selected" : "") ?> value="15">Paraíba</option>
-                            <option <?= ($contractor -> Estado == "16" ? "selected" : "") ?> value="16">Paraná</option>
-                            <option <?= ($contractor -> Estado == "17" ? "selected" : "") ?> value="17">Pernambuco</option>
-                            <option <?= ($contractor -> Estado == "18" ? "selected" : "") ?> value="18">Piauí</option>
-                            <option <?= ($contractor -> Estado == "19" ? "selected" : "") ?> value="19">Rio de Janeiro</option>
-                            <option <?= ($contractor -> Estado == "20" ? "selected" : "") ?> value="20">Rio Grande do Norte</option>
-                            <option <?= ($contractor -> Estado == "21" ? "selected" : "") ?> value="21">Rio Grande do Sul</option>
-                            <option <?= ($contractor -> Estado == "22" ? "selected" : "") ?> value="22">Rondônia</option>
-                            <option <?= ($contractor -> Estado == "23" ? "selected" : "") ?> value="23">Roraima</option>
-                            <option <?= ($contractor -> Estado == "24" ? "selected" : "") ?> value="24">Santa Catarina</option>
-                            <option <?= ($contractor -> Estado == "25" ? "selected" : "") ?> value="25">São Paulo</option>
-                            <option <?= ($contractor -> Estado == "26" ? "selected" : "") ?> value="26">SeRGipe</option>
-                            <option <?= ($contractor -> Estado == "27" ? "selected" : "") ?> value="27">Tocantins</option>
+                            <option <?= ($address -> Estado == "1" ? "selected" : "") ?> value="1">Acre</option>
+                            <option <?= ($address -> Estado == "2" ? "selected" : "") ?> value="2">Alagoas</option>
+                            <option <?= ($address -> Estado == "3" ? "selected" : "") ?> value="3">Amapá</option>
+                            <option <?= ($address -> Estado == "4" ? "selected" : "") ?> value="4">Amazonas</option>
+                            <option <?= ($address -> Estado == "5" ? "selected" : "") ?> value="5">Bahia</option>
+                            <option <?= ($address -> Estado == "6" ? "selected" : "") ?> value="6">Ceará</option>
+                            <option <?= ($address -> Estado == "7" ? "selected" : "") ?> value="7">Distrito Federal</option>
+                            <option <?= ($address -> Estado == "8" ? "selected" : "") ?> value="8">Espírito Santo</option>
+                            <option <?= ($address -> Estado == "9" ? "selected" : "") ?> value="9">Goiás</option>
+                            <option <?= ($address -> Estado == "10" ? "selected" : "") ?> value="10">Maranhão</option>
+                            <option <?= ($address -> Estado == "11" ? "selected" : "") ?> value="11">Mato Grosso</option>
+                            <option <?= ($address -> Estado == "12" ? "selected" : "") ?> value="12">Mato Grosso do Sul</option>
+                            <option <?= ($address -> Estado == "13" ? "selected" : "") ?> value="13">Minas Gerais</option>
+                            <option <?= ($address -> Estado == "14" ? "selected" : "") ?> value="14">Pará</option>
+                            <option <?= ($address -> Estado == "15" ? "selected" : "") ?> value="15">Paraíba</option>
+                            <option <?= ($address -> Estado == "16" ? "selected" : "") ?> value="16">Paraná</option>
+                            <option <?= ($address -> Estado == "17" ? "selected" : "") ?> value="17">Pernambuco</option>
+                            <option <?= ($address -> Estado == "18" ? "selected" : "") ?> value="18">Piauí</option>
+                            <option <?= ($address -> Estado == "19" ? "selected" : "") ?> value="19">Rio de Janeiro</option>
+                            <option <?= ($address -> Estado == "20" ? "selected" : "") ?> value="20">Rio Grande do Norte</option>
+                            <option <?= ($address -> Estado == "21" ? "selected" : "") ?> value="21">Rio Grande do Sul</option>
+                            <option <?= ($address -> Estado == "22" ? "selected" : "") ?> value="22">Rondônia</option>
+                            <option <?= ($address -> Estado == "23" ? "selected" : "") ?> value="23">Roraima</option>
+                            <option <?= ($address -> Estado == "24" ? "selected" : "") ?> value="24">Santa Catarina</option>
+                            <option <?= ($address -> Estado == "25" ? "selected" : "") ?> value="25">São Paulo</option>
+                            <option <?= ($address -> Estado == "26" ? "selected" : "") ?> value="26">SeRGipe</option>
+                            <option <?= ($address -> Estado == "27" ? "selected" : "") ?> value="27">Tocantins</option>
                         </select>
                     </div>
 
@@ -192,10 +169,10 @@
                     <div class="col-3">
                         <label for="idPlano" class="form-label">Plano contratado</label>
                             <select name="idPlano" id="idPlano" class="form-control" required>
-                            <option value=""  <?= (isset($dataTblPlanoContratado['PlanoContratado']) ? ($dataTblPlanoContratado['PlanoContratado'] == 0 ? "selected" : "") : "") ?>>...</option>
+                            <option value=""  <?= (isset($contractedPlan->PlanoContratado) ? ($contractedPlan->PlanoContratado == 0 ? "selected" : "") : "") ?>>...</option>
                             
-                            <?php foreach ($dataTblPlano as $value): ?>
-                                <option value="<?= $value['idPlano'] ?>" <?= (isset($dataTblPlanoContratado['PlanoContratado']) ? ($dataTblPlanoContratado['PlanoContratado'] == $value['idPlano'] ? "selected" : "") : "") ?>><?= $value['Plano'] ?></option>
+                            <?php foreach ($plan as $value): ?>
+                                <option value="<?= $value->idPlano ?>" <?= (isset($contractedPlan->PlanoContratado) ? ($contractedPlan->PlanoContratado == $value->idPlano ? "selected" : "") : "") ?>><?= $value->Plano ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -207,26 +184,26 @@
                                 <label class="form-check-label" for="cartaoCredito">
                                     Cartão de crédito
                                 </label>
-                                <input class="form-check-input" type="radio" name="MetodoCobranca" id="cartaoCredito" value="1" <?= ($contractor -> MetodoCobranca == "1" ? 'checked="checked"' : "") ?> required>
+                                <input class="form-check-input" type="radio" name="MetodoCobranca" id="cartaoCredito" value="1" <?= ($contractedPlan -> MetodoCobranca == "1" ? 'checked="checked"' : "") ?> required>
                             </div>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label" for="Energisa">
                                     Energisa
                                 </label>
-                                <input class="form-check-input" type="radio" name="MetodoCobranca" id="Energisa" value="2" <?= ($contractor -> MetodoCobranca == "2" ? 'checked="checked"' : "") ?> required>
+                                <input class="form-check-input" type="radio" name="MetodoCobranca" id="Energisa" value="2" <?= ($contractedPlan -> MetodoCobranca == "2" ? 'checked="checked"' : "") ?> required>
                             </div>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label" for="SexoNaoBinario">
                                     Carnê
                                 </label>
-                                <input class="form-check-input" type="radio" name="MetodoCobranca" id="SexoNaoBinario" value="3" <?= ($contractor -> MetodoCobranca == "3" ? 'checked="checked"' : "") ?> required>
+                                <input class="form-check-input" type="radio" name="MetodoCobranca" id="SexoNaoBinario" value="3" <?= ($contractedPlan -> MetodoCobranca == "3" ? 'checked="checked"' : "") ?> required>
                             </div>
                         </div>
                     </div>                    
 
                     <div class="col-2">
                         <label for="Vencimento" class="form-label">Vencimento</label>
-                        <input type="date" class="form-control" maxlength="10" name="Vencimento"  id="Vencimento" value="<?= $contractor -> Vencimento ?>" required>
+                        <input type="date" class="form-control" maxlength="10" name="Vencimento"  id="Vencimento" value="<?= $contractedPlan -> Vencimento ?>" required>
                     </div>
                 </div>
 
@@ -250,14 +227,14 @@
 
                     <div class="col-2">
                         <label for="Valor" class="form-label">Valor</label>
-                        <input type="number" class="form-control" maxlength="5" name="Valor"  id="Valor" value="<?= $contractor -> Valor ?>" required>
+                        <input type="number" class="form-control" maxlength="5" name="Valor"  id="Valor" value="<?= $contractedPlan -> Valor ?>" required>
                     </div>
                 </div>
                 
                 <br>
                 
                 <?php 
-                    if (isset($dataTblDependente['FK_Dependente_Contratante']) && ($_GET['acao'] != "insert")) {
+                    if (isset($dependent->FK_Dependente_Contratante) && ($_GET['acao'] != "insert")) {
 
                         ?><h4>Dependentes</h4><?php
 
@@ -265,13 +242,13 @@
                         $conversor = $quantidadeDependentes->execute([$_GET["idContratante"]]);
                         $quantidadeDependentes = $quantidadeDependentes->fetchAll();
 
-                        foreach ($quantidadeDependentes as $dataTblDependente) {
+                        foreach ($quantidadeDependentes as $dependent) {
                             $count = 0;
                             $count = $count +1;
                         ?><div class="row">
                                 <input type="hidden" class="form-control" name="idDependente[]"  id="idDependente" 
                                     <?php 
-                                    if (isset($dataTblDependente['idDependente'])) {$idDependente = $dataTblDependente['idDependente'];
+                                    if (isset($dependent->idDependente)) {$idDependente = $dependent->idDependente;
                                     } else {
                                         $idDependente = "";
                                     }
@@ -281,7 +258,7 @@
                                 <label for="NomeDependente" class="form-label">Nome</label>
                                 <input type="text" class="form-control" maxlength="255" name="NomeDependente[]"  id="NomeDependente" 
                                     <?php 
-                                    if (isset($dataTblDependente['NomeDependente'])) {$NomeDependente = $dataTblDependente['NomeDependente'];
+                                    if (isset($dependent-> NomeDependente)) {$NomeDependente = $dependent-> NomeDependente;
                                     } else {
                                         $NomeDependente = "";
                                     }
@@ -292,7 +269,7 @@
                                 <label for="DataNascimentoDependente" class="form-label">Data de nascimento</label>
                                 <input type="date" class="form-control" maxlength="10" name="DataNascimentoDependente[]"  id="DataNascimentoDependente" 
                                 <?php 
-                                    if (isset($dataTblDependente['DataNascimentoDependente'])) {$DataNascimentoDendente = $dataTblDependente['DataNascimentoDependente'];
+                                    if (isset($dependent->DataNascimentoDependente)) {$DataNascimentoDendente = $dependent->DataNascimentoDependente;
                                     } else {
                                         $DataNascimentoDendente = "";
                                     }
@@ -303,7 +280,7 @@
                                 <label for="GrauParentesco" class="form-label">Grau de parentesco</label>
                                 <input type="text" class="form-control" maxlength="20" name="GrauParentesco[]"  id="GrauParentesco" 
                                 <?php 
-                                    if (isset($dataTblDependente['GrauParentesco'])) {$dataGrauParentesco = $dataTblDependente['GrauParentesco'];
+                                    if (isset($dependent->GrauParentesco)) {$dataGrauParentesco = $dependent->GrauParentesco;
                                     } else {
                                         $dataGrauParentesco = "";
                                     }
@@ -314,7 +291,7 @@
                                 <label for="CPFDependente" class="form-label">CPF</label>
                                 <input type="text" class="form-control" maxlength="13" name="CPFDependente[]"  id="CPFDependente" 
                                 <?php 
-                                    if (isset($dataTblDependente['CPFDependente'])) {$dataCPF = $dataTblDependente['CPFDependente'];
+                                    if (isset($dependent->CPFDependente)) {$dataCPF = $dependent->CPFDependente;
                                     } else {
                                         $dataCPF = "";
                                     }
