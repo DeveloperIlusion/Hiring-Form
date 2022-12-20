@@ -10,7 +10,7 @@
         {
             parent:: __construct ("endereco", 
             ["Endereco", "Numero", "Bairro", "Cidade", "Estado", "CEP", "FK_Endereco_Contratante"],
-            "idEndereco", false);
+            'idEndereco', false);
         }
 
         public function add(string $Endereco, string $Numero, string $Cidade, string $Bairro, int $Estado ,string $CEP, Contractor $contractor): Address 
@@ -28,7 +28,7 @@
 
         public function getContractor(): Address 
         {
-            $this->Contractor = (new Contractor())->findById($this->idContratante)->data();
+            $this->contractor = (new Contractor())->findById($this->idContratante)->data();
             return $this;
         }
     }

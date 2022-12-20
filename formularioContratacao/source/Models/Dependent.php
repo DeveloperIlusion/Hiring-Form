@@ -10,7 +10,7 @@
         {
             parent:: __construct("dependente",
             ["NomeDependente","DataNascimentoDependente", "GrauParentesco", "CPFDependente", "FK_Dependente_Contratante"],
-            "idDependente", false);
+            'idDependente', false);
         }
 
         public function add(string $NomeDependente, string $DataNascimentoDependente, string $GrauParentesco, string $CPFDependente, Contractor $contractor): Dependent

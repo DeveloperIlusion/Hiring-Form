@@ -8,7 +8,7 @@
 
         public function __construct()
         {
-            parent:: __construct("plano", ["Plano"], "idPlano", false);
+            parent:: __construct("plano", ["Plano"], 'idPlano', false);
         }
 
         public function contractedPlans()

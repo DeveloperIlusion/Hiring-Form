@@ -10,7 +10,7 @@
         {
             parent:: __construct("planocontratado",
             ["PlanoContratado", "MetodoCobranca", "Valor", "Vencimento", "FK_PlanoContratado_Contratante"],
-            "idPlano", false);
+            'idPlano', false);
         }
 
         public function add(Plan $PlanoContratado, int $MetodoCobranca, float $Valor, string $Vencimento, Contractor $contractor): ContractedPlan
