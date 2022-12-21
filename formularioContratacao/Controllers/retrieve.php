@@ -1,14 +1,11 @@
 <?php
-    use CoffeeCode\DataLayer\Connect;
-    
+    require __DIR__ . "/read.php";
+
     use Source\Models\Contractor;
     use Source\Models\Address;
     use Source\Models\ContractedPlan;
     use Source\Models\Dependent;
     use Source\Models\Plan;
-
-    $conn = Connect::getInstance();
-    $error = Connect::getError();
 
     if ($error){
         echo $error->getMessage();
@@ -29,3 +26,4 @@
         $dependent = (new Dependent())->find("FK_Dependente_Contratante = :id", "id={$_GET["idContratante"]}", "*")->fetch();
         $plan = (new Plan())->find()->fetch(true);        
     }
+    

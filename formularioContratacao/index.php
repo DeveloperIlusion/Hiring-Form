@@ -1,22 +1,12 @@
 <?php
-    require __DIR__ . "/vendor/autoload.php";
-
-    use CoffeeCode\DataLayer\Connect;
-
-    $conn = Connect::getInstance();
-    $error = Connect::getError();
-
-    if ($error){
-        echo $error->getMessage();
-        die();
-    }
+    require __DIR__ . "/Controllers/read.php";
 
     use Source\Models\Contractor;
 
     $contractor = new Contractor();
-    $list = $contractor->find()->fetch(true);
+    $contractorsList = $contractor->find()->fetch(true);
 
-    foreach ($list as $contractorItem){   
+    foreach ($contractorsList as $contractorItem){   
     }
 ?>
 
@@ -54,7 +44,7 @@
                     </div>
 
                     <div class="col-4" id="divInput">
-                        <input class="form-control" id="inputFiltrar" type="text" name="k" value="<?php echo isset($_GET['k']) ? $_GET['k'] : ''; ?>" placeholder="Digite o nome que deseja filtrar" autocomplete="off">
+                        <input class="form-control" id="inputFiltrar" type="search" name="k" value="<?php echo isset($_GET['k']) ? $_GET['k'] : ''; ?>" placeholder="Digite o nome que deseja filtrar" autocomplete="off">
 
                         <input id="botaoFiltrar" class="btn btn-outline-up" type="submit" name="" value="Filtrar">
                     </div>
@@ -142,7 +132,7 @@
                                 }
                         
                         } else {
-                            foreach ($list as $count) {
+                            foreach ($contractorsList as $count) {
                             ?>
                                 <tr>
                                     <td><?= $count->Nome ?></td>

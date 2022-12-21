@@ -12,7 +12,7 @@
     ];
     
     require __DIR__ . "/../vendor/autoload.php";
-    require __DIR__ . "/../examples/retrieve.php";
+    require __DIR__ . "/../Controllers/retrieve.php";
 ;?>
 
 <!DOCTYPE html>
@@ -30,12 +30,12 @@
         <link href="../assets/css/styleForm.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body id="formBody">
         <div class="container">
 
             <h2 id="tituloInicio">__Formulário de Contratante - <?= $subMenu[$_GET['acao']] ;?>__</h2>
 
-            <form method="POST" action="../examples/<?= $_GET['acao'] ;?>.php">
+            <form method="POST" action="../Controllers/<?= $_GET['acao'] ;?>.php">
 
                 <div class="row">
                     <div class="col-12">

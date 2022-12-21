@@ -10,12 +10,12 @@
         {
             parent:: __construct("planocontratado",
             ["PlanoContratado", "MetodoCobranca", "Valor", "Vencimento", "FK_PlanoContratado_Contratante"],
-            'idPlano', false);
+            'idPlanoContratado', false);
         }
 
-        public function add(Plan $PlanoContratado, int $MetodoCobranca, float $Valor, string $Vencimento, Contractor $contractor): ContractedPlan
+        public function add(Plan $plan, int $MetodoCobranca, float $Valor, string $Vencimento, Contractor $contractor): ContractedPlan
         {
-            $this->PlanoContratado = $PlanoContratado;
+            $this->PlanoContratado = $plan->idPlano;
             $this->MetodoCobranca = $MetodoCobranca;
             $this->Valor = $Valor;
             $this->Vencimento = $Vencimento;
