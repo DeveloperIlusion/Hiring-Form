@@ -58,29 +58,18 @@
  
     use Source\Models\Dependent;
 
-    $dependent = (new Dependent())->find("FK_Dependente_Contratante = :id", "id={$_POST["idContratante"]}", "*")->fetch();
-    $dependent-> NomeDependente = $_POST["NomeDependente"];
-    $dependent-> DataNascimentoDependente = $_POST["DataNascimentoDependente"];
-    $dependent-> GrauParentesco = $_POST["GrauParentesco"];
-    $dependent-> CPFDependente = $_POST["CPFDependente"];
-    $dependent -> FK_Dependente_Contratante = $contractor -> idContratante;
+    foreach ( $_POST["idDependente"] as $count => $idDep) {
+        $objDependente = (new Dependent())->findById($idDep);   
 
-    foreach ($dependent->NomeDependente as $count => $dep) {
-        $dependentsData = [
-            $dep,
-            $_POST["DataNascimentoDependente"][$count],
-            $_POST["GrauParentesco"][$count],
-            $_POST["CPFDependente"][$count],
-            $_POST["idDependente"][$count]
-        ];
+        $objDependente->NomeDependente = $_POST["NomeDependente"][$count];
+        $objDependente->DataNascimentoDependente = $_POST["DataNascimentoDependente"][$count];
+        $objDependente->GrauParentesco  = $_POST["GrauParentesco"][$count];
+        $objDependente->CPFDependente = $_POST["CPFDependente"][$count];
         
-        $dependent = (object) $dependentsData;
-        var_dump($dependent);
-    }
-
-    if ($dependent->save()) 
-    {
-        $dependent->data();
-    } else {
-        $dependent-> fail();
+        if ($objDependente->save()) 
+        {
+            var_dump($objDependente->data());
+        } else {
+            var_dump($objDependente-> fail());
+        }        
     }

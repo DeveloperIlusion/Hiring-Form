@@ -55,6 +55,7 @@
                 if (isset($_GET['msgSucesso'])) {
                     ?>
                     <div class="alert alert-success" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         <?= $_GET['msgSucesso'] ?>
                     </div>
                     <?php
@@ -63,6 +64,7 @@
                 if (isset($_GET['msgError'])) {
                     ?>
                     <div class="alert alert-danger" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         <?= $_GET['msgError'] ?>
                     </div>
                     <?php

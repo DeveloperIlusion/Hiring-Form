@@ -3,7 +3,7 @@
         'name' => 'developerilusion/formulariocontratacao',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'abde76324fef08b573033f3de6fa77cd0c16c9fe',
+        'reference' => 'fbe482ff3b5182ea89209940713a89335f2df4dc',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'developerilusion/formulariocontratacao' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'abde76324fef08b573033f3de6fa77cd0c16c9fe',
+            'reference' => 'fbe482ff3b5182ea89209940713a89335f2df4dc',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
