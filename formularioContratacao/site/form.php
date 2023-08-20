@@ -10,10 +10,45 @@
         "update" => "Alterar",
         "delete" => "Excluir"
     ];
+<<<<<<< Updated upstream
     
     require __DIR__ . "/../vendor/autoload.php";
     require __DIR__ . "/../Controllers/retrieve.php";
 ;?>
+=======
+
+    require __DIR__ . "/../vendor/autoload.php";
+
+    use CoffeeCode\DataLayer\Connect;
+
+    $conn = Connect::getInstance();
+    $error = Connect::getError();
+
+    if ($error){
+        echo $error->getMessage();
+        die();
+    }
+
+    use Source\Models\Contractor;
+
+    $contractor = new Contractor();
+
+    if ($_GET['idContratante'] = "" && $_GET['acao'] = "insert") {
+        $list = $contractor->find()->fetch();
+        foreach ($list as $camposContractor) {
+            foreach ($camposContractor as $rodador) {
+                $rodador = 0;
+            }
+        }
+    } else {
+        $teste = (int) $_GET['idContratante'];
+        $list = $contractor->findById($_GET['idContratante']);
+        foreach($list as $camposContractor){
+
+        }
+    }
+?>
+>>>>>>> Stashed changes
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -40,7 +75,11 @@
                 <div class="row">
                     <div class="col-12">
                         <label for="Nome" class="form-label">Nome</label>
+<<<<<<< Updated upstream
                         <input type="text" class="form-control" maxlength="255" name="Nome"  id="Nome" value="<?= $contractor -> Nome ?>" required>
+=======
+                        <input type="text" class="form-control" maxlength="255" name="Nome"  id="Nome" value="<?= $camposContractor-> Nome ?>" required>
+>>>>>>> Stashed changes
                     </div>
                 </div>
 

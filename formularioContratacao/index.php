@@ -6,8 +6,12 @@
     $contractor = new Contractor();
     $contractorsList = $contractor->find()->fetch(true);
 
+<<<<<<< Updated upstream
     foreach ($contractorsList as $contractorItem){   
     }
+=======
+    foreach ($list as $count) {}
+>>>>>>> Stashed changes
 ?>
 
 <!DOCTYPE html>
